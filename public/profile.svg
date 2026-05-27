@@ -1,0 +1,74 @@
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <clipPath id="circleClip">
+      <circle cx="60" cy="60" r="60"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#circleClip)">
+    <!-- 배경 -->
+    <rect width="120" height="120" fill="#e8eef7"/>
+
+    <!-- 어깨 / 파란 옷 -->
+    <path d="M 4 120 Q 4 92, 28 84 L 46 80 Q 53 88, 60 88 Q 67 88, 74 80 L 92 84 Q 116 92, 116 120 Z" fill="#4a7bd6"/>
+
+    <!-- 옷 안쪽 셔츠 (V넥 느낌) -->
+    <path d="M 53 84 Q 60 92, 67 84 L 65 80 Q 60 82, 55 80 Z" fill="#fdf3e7"/>
+
+    <!-- 목 -->
+    <path d="M 54 76 L 54 86 Q 60 90, 66 86 L 66 76 Z" fill="#e8b88f"/>
+
+    <!-- 얼굴 -->
+    <path d="M 39 56 Q 39 80, 52 86 Q 60 89, 68 86 Q 81 80, 81 56 Q 81 36, 60 36 Q 39 36, 39 56 Z" fill="#fcd6b3"/>
+
+    <!-- 귀 -->
+    <ellipse cx="38.5" cy="62" rx="3" ry="5" fill="#fbc89a"/>
+    <ellipse cx="81.5" cy="62" rx="3" ry="5" fill="#fbc89a"/>
+    <ellipse cx="38.5" cy="63" rx="1.2" ry="2.4" fill="#d99a72"/>
+    <ellipse cx="81.5" cy="63" rx="1.2" ry="2.4" fill="#d99a72"/>
+
+    <!-- 머리 전체 (이마까지 덮음, 한 덩어리) -->
+    <path d="M 38 58
+             Q 35 28, 58 25
+             Q 64 21, 72 27
+             Q 86 30, 84 58
+             Q 82 52, 78 50
+             Q 76 47, 72 47
+             Q 66 50, 60 48
+             Q 54 50, 48 47
+             Q 44 47, 42 50
+             Q 39 53, 38 58 Z"
+          fill="#3a2418"/>
+
+    <!-- 앞머리 그림자 (가르마 한쪽) -->
+    <path d="M 42 50
+             Q 50 42, 60 42
+             Q 70 42, 76 48
+             Q 70 44, 64 45
+             Q 60 50, 55 47
+             Q 48 45, 42 50 Z"
+          fill="#2a1810"/>
+
+    <!-- 가르마 라인 -->
+    <path d="M 58 36 Q 58 42, 60 47" stroke="#1a0d06" stroke-width="0.8" fill="none" stroke-linecap="round"/>
+
+    <!-- 눈썹 -->
+    <path d="M 47 53 Q 51 51, 56 53" stroke="#2a1810" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+    <path d="M 64 53 Q 69 51, 73 53" stroke="#2a1810" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+
+    <!-- 눈 -->
+    <ellipse cx="51" cy="61" rx="2" ry="2.6" fill="#2a1a0d"/>
+    <ellipse cx="69" cy="61" rx="2" ry="2.6" fill="#2a1a0d"/>
+    <circle cx="51.6" cy="60.3" r="0.7" fill="#fff"/>
+    <circle cx="69.6" cy="60.3" r="0.7" fill="#fff"/>
+
+    <!-- 코 -->
+    <path d="M 60 64 Q 58 70, 60 71 Q 62 70, 60 64" stroke="#d49473" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+
+    <!-- 입 (살짝 미소) -->
+    <path d="M 54 75 Q 60 79, 66 75" stroke="#3a2310" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+
+    <!-- 볼 -->
+    <ellipse cx="45" cy="69" rx="4" ry="2.8" fill="#f5a89a" opacity="0.5"/>
+    <ellipse cx="75" cy="69" rx="4" ry="2.8" fill="#f5a89a" opacity="0.5"/>
+  </g>
+</svg>

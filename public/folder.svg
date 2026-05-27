@@ -1,0 +1,13 @@
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <!-- 폴더 탭 -->
+  <path d="M 14 32 L 48 32 L 56 18 Q 58 14 63 14 L 63 32 Z" fill="#FFD966" stroke="#D4AF37" stroke-width="1.5" stroke-linejoin="round"/>
+
+  <!-- 폴더 본체 -->
+  <path d="M 14 32 L 63 32 L 100 32 Q 108 32 108 40 L 108 95 Q 108 105 100 105 L 18 105 Q 10 105 10 97 L 10 40 Q 10 32 18 32 L 14 32 Z" fill="#FFD966" stroke="#D4AF37" stroke-width="1.5" stroke-linejoin="round"/>
+
+  <!-- 폴더 3D 음영 -->
+  <path d="M 14 32 L 63 32 L 100 32 Q 108 32 108 40 L 108 48 Q 108 38 100 38 L 63 38 L 14 38 Q 10 38 10 40 L 10 40 Q 10 32 18 32 L 14 32 Z" fill="rgba(255, 255, 255, 0.4)"/>
+
+  <!-- 폴더 내부 음영 -->
+  <path d="M 16 50 L 104 50 Q 105 50 105 51 L 105 95 Q 105 103 100 103 L 18 103 Q 12 103 12 97 L 12 51 Q 12 50 16 50 Z" fill="rgba(212, 175, 55, 0.3)"/>
+</svg>

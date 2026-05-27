@@ -1,0 +1,159 @@
+.project-folder {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: white;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  color: #333;
+  padding: 24px;
+  overflow-y: auto;
+}
+
+/* ===== Header ===== */
+.project-header {
+  margin-bottom: 28px;
+}
+
+.project-header h2 {
+  margin: 0 0 8px;
+  font-size: 28px;
+  font-weight: 700;
+  color: #333;
+}
+
+.project-count {
+  margin: 0;
+  font-size: 14px;
+  color: #999;
+}
+
+/* ===== Project List ===== */
+.project-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ===== Project Card ===== */
+.project-card {
+  background: #f9f9f9;
+  border: 1px solid #e8e8e8;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.project-card:hover {
+  border-color: #d0d0d0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.project-card.expanded {
+  border-color: #0078d4;
+  background: #f5f9ff;
+  box-shadow: 0 2px 12px rgba(0, 120, 212, 0.15);
+}
+
+/* ===== Card Header ===== */
+.project-card-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+}
+
+.project-icon {
+  font-size: 28px;
+  flex-shrink: 0;
+}
+
+.project-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.project-name {
+  margin: 0 0 4px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #333;
+}
+
+.project-date {
+  margin: 0;
+  font-size: 12px;
+  color: #999;
+}
+
+.project-arrow {
+  font-size: 12px;
+  color: #999;
+  flex-shrink: 0;
+  transition: color 0.2s ease;
+}
+
+.project-card:hover .project-arrow {
+  color: #333;
+}
+
+/* ===== Card Content ===== */
+.project-card-content {
+  padding: 0 16px 16px;
+  border-top: 1px solid #e8e8e8;
+  animation: slideDown 0.2s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    max-height: 500px;
+  }
+}
+
+.project-desc {
+  margin: 12px 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #666;
+}
+
+/* ===== Tags ===== */
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.tag {
+  display: inline-block;
+  padding: 4px 10px;
+  background: #e8f4ff;
+  color: #0078d4;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* ===== Scrollbar ===== */
+.project-folder::-webkit-scrollbar {
+  width: 8px;
+}
+
+.project-folder::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.project-folder::-webkit-scrollbar-thumb {
+  background: #d0d0d0;
+  border-radius: 4px;
+}
+
+.project-folder::-webkit-scrollbar-thumb:hover {
+  background: #a0a0a0;
+}

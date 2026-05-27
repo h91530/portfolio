@@ -1,0 +1,7 @@
+<svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+  <!-- 파란색 네모 배경 -->
+  <rect x="0" y="0" width="18" height="18" rx="2" fill="#007bff" />
+
+  <!-- 흰색 T 글자 (가운데 정렬) -->
+  <text x="9" y="9" font-size="13" font-weight="700" fill="white" text-anchor="middle" dominant-baseline="central" font-family="Arial, sans-serif">T</text>
+</svg>
