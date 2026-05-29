@@ -1,5 +1,11 @@
 'use client';
 
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
 export default function TelemonContent() {
   return (
     <div className="about-page">
@@ -20,11 +26,22 @@ export default function TelemonContent() {
       </section>
 
       <section className="telemon-images">
-        <div className="telemon-image-grid">
-          <img src="/telemon1.png" alt="Telemon 1" />
-          <img src="/telemon2.png" alt="Telemon 2" />
-          <img src="/telemon3.png" alt="Telemon 3" />
-        </div>
+        <Swiper
+          modules={[Navigation, Pagination]}
+          navigation
+          pagination={{ clickable: true }}
+          className="telemon-swiper"
+        >
+          <SwiperSlide>
+            <img src="/telemon1.png" alt="Telemon 1" />
+          </SwiperSlide>
+          <SwiperSlide>
+            <img src="/telemon2.png" alt="Telemon 2" />
+          </SwiperSlide>
+          <SwiperSlide>
+            <img src="/telemon3.png" alt="Telemon 3" />
+          </SwiperSlide>
+        </Swiper>
       </section>
 
       <section className="about-section" id="overview">
