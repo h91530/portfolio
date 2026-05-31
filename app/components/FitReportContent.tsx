@@ -30,17 +30,21 @@ export default function FitReportContent() {
           <SwiperSlide>
             <img src="/2fit2.png" alt="2FitReport 2" />
           </SwiperSlide>
+          <SwiperSlide>
+            <img src="/2fit9.png" alt="2FitReport 3" />
+          </SwiperSlide>
         </Swiper>
       </section>
 
       <section className="about-section" id="overview">
         <h2>프로젝트 개요</h2>
         <p>
-          <strong>2FitReport</strong>는 기업의 <strong>문서 관리, 협업, 실적 통계를 통합한 차세대 엔터프라이즈 업무 시스템</strong>입니다.
+          <strong>2FitReport</strong>는 <strong>실제 기업에서 운영 중인 문서 관리, 협업, 실적 통계를 통합한 차세대 엔터프라이즈 업무 시스템</strong>입니다.
           Next.js 프레임워크로 프론트엔드와 백엔드를 모두 구축했으며,
           웹 기술을 기반으로 데스크톱 애플리케이션으로 프로그램화하여 사용자 경험을 극대화했습니다.
           기존의 종이 기반, 이메일 기반 문서 관리 방식을 완전히 디지털화하여 조직의 업무 효율성을 극대화하고,
           데이터 기반의 의사결정을 가능하게 합니다.
+          (<span style={{ backgroundColor: '#fff3cd', padding: '2px 6px', borderRadius: '4px', fontWeight: '600' }}>실제 운영 중인 시스템이므로 개인정보 보호를 위해 스크린샷의 민감한 정보는 검은색으로 처리했습니다.</span>)
         </p>
 
         <p style={{ marginTop: '20px', marginBottom: '20px' }}>
