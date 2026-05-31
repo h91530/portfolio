@@ -1660,7 +1660,7 @@ body {
   padding: 24px 26px;
   transition: box-shadow 0.2s, transform 0.15s, border-color 0.15s;
   display: grid;
-  grid-template-columns: 1fr 550px;
+  grid-template-columns: 1fr;
   gap: 20px;
   align-items: flex-start;
 }
@@ -1708,8 +1708,6 @@ body {
   border-radius: 8px;
   object-fit: contain;
   display: block;
-  max-width: 550px;
-  max-height: 300px;
   border: 1px solid #e8eaed;
   flex: 1;
 }

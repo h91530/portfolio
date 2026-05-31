@@ -65,13 +65,13 @@ export default function FitReportContent() {
         </p>
 
         <p style={{ marginTop: '20px', marginBottom: '20px' }}>
-          <strong>주요 기능:</strong> 3단계 자동화 워크플로우(영업자 작성 → 검수자 검수 → 관리자 승인)로 문서 승인 프로세스를 완전히 자동화합니다.
+          <strong>주요 기능:</strong> 5단계 문서 처리 워크플로우(영업자 제출 → 검수자 검토 → 대표실무자 배정 → 실무자 처리 → 대표자 승인)로 체계적인 문서 관리를 구현합니다.
           메모와 댓글을 통한 실시간 협업으로 피드백을 빠르게 주고받으며, 역할 기반 권한 관리로 민감한 정보를 보호합니다.
           모든 활동이 자동으로 기록되어 규정 준수와 감시를 지원하고, 통계 대시보드로 조직의 현황을 한눈에 파악할 수 있습니다.
         </p>
 
         <p>
-          <strong>주요 사용자:</strong> 직원(문서 제출자), 담당자(검토자), 관리자(승인권자), 시스템 관리자
+          <strong>주요 사용자:</strong> 영업자(문서 제출자), 검수자(검토), 대표실무자(배정), 실무자(처리), 대표자(최종 승인)
           <br />
           <strong>핵심 목표:</strong> 문서 관리의 완전 디지털화, 협업 효율성 극대화, 실시간 현황 파악, 규정 준수 자동화
         </p>
@@ -82,18 +82,23 @@ export default function FitReportContent() {
         <div className="about-projects">
           <article className="project-card">
             <div className="project-content">
-              <h3>3단계 문서 승인 워크플로우</h3>
+              <h3>5단계 문서 처리 워크플로우</h3>
               <p>
-                영업자가 문서를 작성하면 담당 검수자가 검수하고, 최종 관리자가 승인하는 3단계 프로세스가 자동으로 진행됩니다.
-                각 단계에서 담당자가 자동으로 배정되고, 메모와 댓글로 실시간 피드백을 주고받으며 협업합니다.
-                거부 또는 수정 요청이 있으면 영업자에게 즉시 알림이 전달되어 빠른 재작업이 가능합니다.
+                <strong>영업자가 문서를 제출</strong>하면 검수자가 검토 및 검증을 진행합니다.
+                검수 완료 후 <strong>대표실무자가 실무자를 배정</strong>하고, 배정된 실무자가 완료 처리를 합니다.
+                최종적으로 대표자가 검증하여 승인 완료됩니다.
+              </p>
+              <p style={{ marginTop: '12px', fontSize: '14px' }}>
+                <strong>문서 진행 단계:</strong> 상담요청 → 서류요청 → 분석 → 심사 → 진행 → 승인
+                <br />각 단계에서 메모와 댓글로 실시간 협업이 가능하며, 거부 또는 수정 요청이 있으면 이전 담당자에게 즉시 알림이 전달됩니다.
               </p>
               <div className="project-tags">
-                <span>자동 워크플로우</span>
+                <span>5단계 프로세스</span>
+                <span>5단계 진행상태</span>
                 <span>실시간 협업</span>
-                <span>다단계 검수</span>
               </div>
             </div>
+            <img src="/2fit100.png" alt="5단계 문서 처리 워크플로우" className="project-image" />
           </article>
 
           <article className="project-card">
@@ -110,22 +115,24 @@ export default function FitReportContent() {
                 <span>대화 기록</span>
               </div>
             </div>
+            <img src="/2fit99.png" alt="메모 및 댓글 기반 협업" className="project-image" />
           </article>
 
           <article className="project-card">
             <div className="project-content">
               <h3>역할 기반 권한 관리 (RBAC)</h3>
               <p>
-                영업자, 매니저, 검수자, 관리자별로 정확한 권한이 설정됩니다.
-                일반 영업사원은 자신의 문서만 편집 가능하고, 매니저는 모든 문서를 편집할 수 있습니다.
-                검수자는 담당 영업자의 문서만 검수 단계에서 편집 가능하며, 관리자만 최종 승인과 전체 조회가 가능합니다.
+                영업자, 검수자, 대표실무자, 실무자, 대표자 등 각 역할별로 정확한 권한이 설정됩니다.
+                영업자는 자신의 문서 제출과 수정만 가능하고, 검수자는 검수 단계에서 피드백을 제공합니다.
+                대표실무자는 실무자를 배정하고, 실무자는 배정된 문서의 처리만 가능하며, 대표자만 최종 승인과 전체 조회가 가능합니다.
               </p>
               <div className="project-tags">
-                <span>역할별 권한</span>
-                <span>접근 제어</span>
+                <span>5단계 권한 구조</span>
+                <span>단계별 접근 제어</span>
                 <span>보안 강화</span>
               </div>
             </div>
+            <img src="/2fit4.png" alt="역할 기반 권한 관리" className="project-image" style={{ minHeight: '700px', objectFit: 'cover' }} />
           </article>
 
           <article className="project-card">
@@ -133,7 +140,8 @@ export default function FitReportContent() {
               <h3>PDF 뷰어 및 자동 텍스트 추출</h3>
               <p>
                 PDF.js를 활용하여 웹 브라우저에서 직접 PDF를 열람할 수 있습니다.
-                <strong>PDF 파일을 업로드하면 자동으로 텍스트가 추출되어 input 영역에 입력</strong>되므로,
+                <strong>PDF 파일을 업로드하면 자동으로 텍스트가 추출되어 input 영역에 입력</strong>되고,
+                <strong>PDF 안에 있는 이미지도 자동으로 감지되어 서버에 업로드</strong>됩니다.
                 사용자는 문서의 내용을 수동으로 입력할 필요 없이 바로 검수 및 승인 단계로 진행할 수 있습니다.
                 문서 검색 기능과 함께 효율적인 문서 관리가 가능합니다.
               </p>
@@ -142,6 +150,10 @@ export default function FitReportContent() {
                 <span>자동 텍스트 추출</span>
                 <span>자동 입력</span>
               </div>
+            </div>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', width: '100%' }}>
+              <img src="/2fit98.png" alt="PDF 뷰어 및 자동 텍스트 추출 1" className="project-image" />
+              <img src="/2fit97.png" alt="PDF 뷰어 및 자동 텍스트 추출 2" className="project-image" />
             </div>
           </article>
 
@@ -159,13 +171,14 @@ export default function FitReportContent() {
                 <span>파일 관리</span>
               </div>
             </div>
+            <img src="/2fit96.png" alt="파일 관리 및 다운로드" className="project-image" />
           </article>
 
           <article className="project-card">
             <div className="project-content">
               <h3>활동 로그 및 감시 추적</h3>
               <p>
-                문서 생성, 수정, 제출, 검수, 승인 등 모든 작업이 타임스탐프와 담당자 정보와 함께 자동으로 기록됩니다.
+                문서 생성, 수정, 제출, 검수, 승인 등 모든 작업이 타임스탬프와 담당자 정보와 함께 자동으로 기록됩니다.
                 누가 언제 무엇을 했는지 완벽하게 추적할 수 있어 규정 준수와 감사 대응이 용이합니다.
                 분쟁이나 문제 발생 시 전체 히스토리를 검토하여 원인을 파악할 수 있습니다.
               </p>
@@ -175,6 +188,7 @@ export default function FitReportContent() {
                 <span>규정 준수</span>
               </div>
             </div>
+            <img src="/2fit95.png" alt="활동 로그 및 감시 추적" className="project-image" />
           </article>
 
           <article className="project-card">
@@ -190,6 +204,10 @@ export default function FitReportContent() {
                 <span>실적 분석</span>
                 <span>통계 대시보드</span>
               </div>
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', width: '100%' }}>
+              <img src="/2fit94.png" alt="통계 대시보드 및 실적 분석 1" className="project-image" />
+              <img src="/2fit93.png" alt="통계 대시보드 및 실적 분석 2" className="project-image" />
             </div>
           </article>
         </div>
@@ -209,6 +227,7 @@ export default function FitReportContent() {
             <h3>Backend & Database</h3>
             <div className="skill-chips">
               <span>Next.js API Routes</span>
+              <span>Supabase</span>
               <span>PostgreSQL</span>
             </div>
           </div>
