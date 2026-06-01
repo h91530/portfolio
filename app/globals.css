@@ -1477,6 +1477,7 @@ body {
   margin: 0 auto 32px;
   border-radius: 8px;
   background: transparent;
+  border: 2px solid #333;
   display: flex;
   align-items: center;
   justify-content: center;
