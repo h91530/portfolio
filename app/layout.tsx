@@ -5,9 +5,6 @@ import './globals.css';
 export const metadata: Metadata = {
   title: '포트폴리오',
   description: '양태현 포트폴리오',
-  icons: {
-    icon: '/telemon.svg',
-  },
 };
 
 export default function RootLayout({
