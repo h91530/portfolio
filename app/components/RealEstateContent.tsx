@@ -72,14 +72,27 @@ export default function RealEstateContent() {
             <div className="project-content">
               <h3>부동산 유형별 실거래가 API</h3>
               <p>
-                아파트, 빌라, 오피스텔, 단독주택, 사무실, 상가, 공장, 토지 등 8가지 부동산 유형을 지원합니다.
-                각 유형별로 국토교통부의 서로 다른 API 엔드포인트(RTMSDataSvcAptTradeDev, RTMSDataSvcSHTrade 등)를 활용하여
-                최근 24개월 거래 데이터를 조회하고, 건물명을 자동 추출하여 드롭다운 목록으로 생성합니다.
+                국토교통부의 부동산 유형별 공개 API를 정확하게 매핑하여 구현했습니다.
+                지원하는 부동산 유형은 아파트, 빌라, 오피스텔, 사무실, 상가, 숙박, 공장, 토지 8가지이며,
+                각 유형에 따라 서로 다른 API 엔드포인트를 활용합니다:
+              </p>
+              <ul style={{ marginTop: '12px', marginBottom: '12px', paddingLeft: '20px' }}>
+                <li><strong>아파트:</strong> RTMSDataSvcAptTradeDev</li>
+                <li><strong>빌라/연립주택:</strong> RTMSDataSvcSHTrade</li>
+                <li><strong>오피스텔:</strong> RTMSDataSvcOffiTrade</li>
+                <li><strong>단독주택/사무실/상가/숙박:</strong> RTMSDataSvcNrgTrade</li>
+                <li><strong>공장/창고:</strong> RTMSDataSvcInduTrade</li>
+                <li><strong>토지:</strong> RTMSDataSvcLandTrade</li>
+              </ul>
+              <p>
+                선택한 주소와 부동산 유형에 맞는 API를 호출하여 최근 24개월의 실거래가 데이터를 조회합니다.
+                조회된 데이터에서 건물명을 자동 추출하고, 정확도 순으로 정렬하여 드롭다운 목록으로 생성합니다.
+                사용자가 건물을 선택하면 해당 부동산의 최근 거래가를 바탕으로 월세 vs 매입 비교 계산을 수행합니다.
               </p>
               <div className="project-tags">
-                <span>8가지 부동산 유형</span>
-                <span>국토교통부 API</span>
-                <span>자동 건물 검색</span>
+                <span>아파트·빌라·오피스텔·사무실·상가·숙박·공장·토지</span>
+                <span>24개월 거래 데이터</span>
+                <span>자동 건물 추출</span>
               </div>
             </div>
           </article>
@@ -147,6 +160,69 @@ export default function RealEstateContent() {
               </div>
             </div>
           </article>
+        </div>
+      </section>
+
+      <section className="about-section">
+        <h2>사용된 API 상세 분석</h2>
+        <div style={{ backgroundColor: '#f5f5f5', padding: '16px', borderRadius: '8px', marginBottom: '20px' }}>
+          <h3 style={{ marginTop: 0, fontSize: '16px', fontWeight: '600' }}>정부 API (국토교통부 실거래가 OpenAPI)</h3>
+          <p style={{ margin: '8px 0', fontSize: '14px' }}>
+            <strong>제공자:</strong> 국토교통부 (data.go.kr)
+            <br />
+            <strong>인증 방식:</strong> API 서비스 키(serviceKey) 기반 인증
+            <br />
+            <strong>데이터 범위:</strong> 최근 24개월 부동산 실거래가 정보
+          </p>
+        </div>
+
+        <div style={{ marginBottom: '20px' }}>
+          <h3 style={{ fontSize: '16px', fontWeight: '600', marginBottom: '12px' }}>부동산 유형별 API 엔드포인트</h3>
+          <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '14px' }}>
+            <tbody>
+              <tr style={{ borderBottom: '1px solid #ddd' }}>
+                <td style={{ padding: '10px', fontWeight: '600', backgroundColor: '#f9f9f9' }}>아파트</td>
+                <td style={{ padding: '10px' }}><strong>RTMSDataSvcAptTradeDev</strong><br /><span style={{ fontSize: '12px', color: '#666' }}>https://apis.data.go.kr/1613000/RTMSDataSvcAptTradeDev/getRTMSDataSvcAptTradeDev</span></td>
+              </tr>
+              <tr style={{ borderBottom: '1px solid #ddd' }}>
+                <td style={{ padding: '10px', fontWeight: '600', backgroundColor: '#f9f9f9' }}>빌라/연립</td>
+                <td style={{ padding: '10px' }}><strong>RTMSDataSvcSHTrade</strong><br /><span style={{ fontSize: '12px', color: '#666' }}>https://apis.data.go.kr/1613000/RTMSDataSvcSHTrade/getRTMSDataSvcSHTrade</span></td>
+              </tr>
+              <tr style={{ borderBottom: '1px solid #ddd' }}>
+                <td style={{ padding: '10px', fontWeight: '600', backgroundColor: '#f9f9f9' }}>오피스텔</td>
+                <td style={{ padding: '10px' }}><strong>RTMSDataSvcOffiTrade</strong><br /><span style={{ fontSize: '12px', color: '#666' }}>https://apis.data.go.kr/1613000/RTMSDataSvcOffiTrade/getRTMSDataSvcOffiTrade</span></td>
+              </tr>
+              <tr style={{ borderBottom: '1px solid #ddd' }}>
+                <td style={{ padding: '10px', fontWeight: '600', backgroundColor: '#f9f9f9' }}>사무실/상가/숙박</td>
+                <td style={{ padding: '10px' }}><strong>RTMSDataSvcNrgTrade</strong><br /><span style={{ fontSize: '12px', color: '#666' }}>https://apis.data.go.kr/1613000/RTMSDataSvcNrgTrade/getRTMSDataSvcNrgTrade</span></td>
+              </tr>
+              <tr style={{ borderBottom: '1px solid #ddd' }}>
+                <td style={{ padding: '10px', fontWeight: '600', backgroundColor: '#f9f9f9' }}>공장/창고</td>
+                <td style={{ padding: '10px' }}><strong>RTMSDataSvcInduTrade</strong><br /><span style={{ fontSize: '12px', color: '#666' }}>https://apis.data.go.kr/1613000/RTMSDataSvcInduTrade/getRTMSDataSvcInduTrade</span></td>
+              </tr>
+              <tr>
+                <td style={{ padding: '10px', fontWeight: '600', backgroundColor: '#f9f9f9' }}>토지</td>
+                <td style={{ padding: '10px' }}><strong>RTMSDataSvcLandTrade</strong><br /><span style={{ fontSize: '12px', color: '#666' }}>https://apis.data.go.kr/1613000/RTMSDataSvcLandTrade/getRTMSDataSvcLandTrade</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div style={{ marginBottom: '20px' }}>
+          <h3 style={{ fontSize: '16px', fontWeight: '600', marginBottom: '12px' }}>기술적 구현 방식</h3>
+          <ul style={{ paddingLeft: '20px', lineHeight: '1.8' }}>
+            <li><strong>법정동코드(LAWD_CD) 활용:</strong> 자체 legal_dong 테이블에서 법정동코드를 조회하여 정확한 지역 단위 데이터 조회</li>
+            <li><strong>병렬 요청 최적화:</strong> PHP cURL Multi를 활용하여 24개월 데이터를 병렬로 수집하여 응답시간 최소화</li>
+            <li><strong>지번 마스킹 처리:</strong> API 응답의 마스킹된 지번을 정확도 순으로 정렬하여 사용자에게 최우선 건물명 제시</li>
+            <li><strong>거래가 통계 계산:</strong> 선택된 건물의 최근 24개월 거래데이터를 집계하여 평균 거래가 산출</li>
+            <li><strong>XML 파싱:</strong> 정부 API 응답(XML)을 PHP SimpleXML로 파싱하여 구조화된 데이터로 변환</li>
+          </ul>
+        </div>
+
+        <div style={{ backgroundColor: '#fff3cd', padding: '12px', borderRadius: '8px', marginBottom: '20px', fontSize: '14px' }}>
+          <strong>주요 장점:</strong> 공식 정부 API로 높은 신뢰성, 실시간 실거래가 데이터, 부동산 유형별 상세 정보 제공
+          <br />
+          <strong>기술적 도전:</strong> 지번 마스킹(정확도 정렬로 해결), 월단위 데이터만 제공, API 응답시간(병렬 요청으로 최적화)
         </div>
       </section>
 
