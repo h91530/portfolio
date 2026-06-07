@@ -5,7 +5,7 @@ export default function RealEstateContent() {
     <div className="about-page">
       <section className="about-hero">
         <div className="about-avatar">
-          <img src="/real-estate.svg" alt="부동산 API" style={{ border: '2px solid #333', borderRadius: '8px' }} />
+          <img src="/logo.png" alt="부동산 API" style={{ border: '2px solid #333', borderRadius: '8px' }} />
         </div>
         <h1>부동산 월세 vs 매입 비교</h1>
         <p className="about-tagline">실거래가 API로 월세와 매입 비용을 실시간 비교하는 웹 플랫폼</p>

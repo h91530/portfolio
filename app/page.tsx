@@ -399,7 +399,7 @@ export default function Home() {
     { id: 'telemon', label: '텔레몬', icon: '/telemon.svg' },
     { id: '2fitreport', label: '2FitReport', icon: '/2fitreport.png' },
     { id: 'yolo', label: 'YOLO AI', icon: '/ai.svg' },
-    { id: 'realestate', label: '부동산 API', icon: '/real-estate.svg' },
+    { id: 'realestate', label: '부동산 API', icon: '/logo.png' },
     { id: 'game', label: '슈퍼 점프', icon: '🎮' },
   ];
 
