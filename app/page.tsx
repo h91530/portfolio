@@ -423,7 +423,7 @@ export default function Home() {
           <div
             key={icon.id}
             className="desktop-icon"
-            onDoubleClick={() => openWindow({ id: icon.id, title: icon.label, icon: icon.icon, maximized: icon.id === 'about' || icon.id === 'telemon' || icon.id === '2fitreport' || icon.id === 'yolo' })}
+            onDoubleClick={() => openWindow({ id: icon.id, title: icon.label, icon: icon.icon, maximized: icon.id === 'about' || icon.id === 'telemon' || icon.id === '2fitreport' || icon.id === 'yolo' || icon.id === 'realestate' })}
           >
             <div className="icon-image">
               {icon.icon.startsWith('/') ? (
