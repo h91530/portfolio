@@ -128,7 +128,11 @@ export default function TelemonContent() {
                 <span>실시간 알림</span>
               </div>
             </div>
-            <img src="/telemon5.png" alt="문자 인증 및 발송 시스템" className="project-image" />
+            <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
+              <div style={{ width: '700px' }}>
+                <img src="/telemon5.png" alt="문자 인증 및 발송 시스템" className="project-image" />
+              </div>
+            </div>
           </article>
 
           <article className="project-card">
@@ -177,7 +181,6 @@ export default function TelemonContent() {
                 이를 통해 기업의 채용 성공률을 높이고 플랫폼의 수익화를 동시에 달성했습니다.
               </p>
               <div className="project-tags">
-                <span>결제 시스템</span>
                 <span>광고 노출</span>
                 <span>우선순위</span>
               </div>

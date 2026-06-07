@@ -6,6 +6,7 @@ import TelemonContent from './components/TelemonContent';
 import FitReportContent from './components/FitReportContent';
 import YoloContent from './components/YoloContent';
 import RealEstateContent from './components/RealEstateContent';
+import ConsultingContent from './components/ConsultingContent';
 import { useWindows } from './contexts/WindowContext';
 
 interface WindowPosition {
@@ -400,6 +401,7 @@ export default function Home() {
     { id: '2fitreport', label: '2FitReport', icon: '/2fitreport.png' },
     { id: 'yolo', label: 'YOLO AI', icon: '/ai.svg' },
     { id: 'realestate', label: '부동산 API', icon: '/logo.png' },
+    { id: 'consulting', label: '컨설팅', icon: '/logo1.png' },
     { id: 'game', label: '슈퍼 점프', icon: '🎮' },
   ];
 
@@ -423,7 +425,7 @@ export default function Home() {
           <div
             key={icon.id}
             className="desktop-icon"
-            onDoubleClick={() => openWindow({ id: icon.id, title: icon.label, icon: icon.icon, maximized: icon.id === 'about' || icon.id === 'telemon' || icon.id === '2fitreport' || icon.id === 'yolo' || icon.id === 'realestate' })}
+            onDoubleClick={() => openWindow({ id: icon.id, title: icon.label, icon: icon.icon, maximized: icon.id === 'about' || icon.id === 'telemon' || icon.id === '2fitreport' || icon.id === 'yolo' || icon.id === 'realestate' || icon.id === 'consulting' })}
           >
             <div className="icon-image">
               {icon.icon.startsWith('/') ? (
@@ -696,7 +698,7 @@ export default function Home() {
             <div className="chrome-tabs">
               <div className="chrome-tab active">
                 <span className="chrome-tab-favicon">
-                  <img src="/real-estate.svg" alt="" />
+                  <img src="/logo.png" alt="" />
                 </span>
                 <span className="chrome-tab-title">부동산 API</span>
                 <button
@@ -737,6 +739,66 @@ export default function Home() {
           </div>
           <div className="chrome-content">
             <RealEstateContent key={reloadCount['realestate'] ?? 0} />
+          </div>
+        </div>
+      )}
+
+      {/* Consulting Window - Chrome style */}
+      {windows.consulting?.open && !windows.consulting.minimized && (
+        <div
+          className={`chrome-window${windows.consulting.maximized ? ' maximized' : ''}`}
+          style={getWindowStyle('consulting')}
+          onMouseDown={() => focusWindow('consulting')}
+        >
+          <div
+            className="chrome-tabbar"
+            onMouseDown={(e) => handleWindowHeaderMouseDown(e, 'consulting')}
+            onDoubleClick={() => handleHeaderDoubleClick('consulting')}
+          >
+            <div className="chrome-tabs">
+              <div className="chrome-tab active">
+                <span className="chrome-tab-favicon">
+                  <img src="/logo1.png" alt="" />
+                </span>
+                <span className="chrome-tab-title">컨설팅</span>
+                <button
+                  className="chrome-tab-close window-controls"
+                  onClick={() => closeWindow('consulting')}
+                  title="탭 닫기"
+                >
+                  ✕
+                </button>
+              </div>
+              <button className="chrome-newtab window-controls" title="새 탭">+</button>
+            </div>
+            <div className="chrome-winctl window-controls">
+              <button className="chrome-winbtn" title="최소화" onClick={() => minimizeWindow('consulting')}>─</button>
+              <button className="chrome-winbtn" title={windows.consulting.maximized ? '복원' : '최대화'} onClick={() => toggleMaximize('consulting')}>
+                {windows.consulting.maximized ? '❐' : '▢'}
+              </button>
+              <button
+                className="chrome-winbtn chrome-close"
+                onClick={() => closeWindow('consulting')}
+                title="닫기"
+              >
+                ✕
+              </button>
+            </div>
+          </div>
+          <div className="chrome-toolbar">
+            <button className="chrome-toolbtn" title="뒤로">←</button>
+            <button className="chrome-toolbtn" title="앞으로">→</button>
+            <button className="chrome-toolbtn" title="새로고침" onClick={() => reloadWindow('consulting')}>↻</button>
+            <div className="chrome-omnibox">
+              <span className="chrome-omnibox-icon">🔒</span>
+              <span className="chrome-omnibox-url">yangti.shop/consulting</span>
+            </div>
+            <button className="chrome-toolbtn" title="북마크">☆</button>
+            <button className="chrome-toolbtn" title="확장 프로그램">🧩</button>
+            <button className="chrome-toolbtn" title="더보기">⋮</button>
+          </div>
+          <div className="chrome-content">
+            <ConsultingContent key={reloadCount['consulting'] ?? 0} />
           </div>
         </div>
       )}
