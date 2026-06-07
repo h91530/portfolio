@@ -51,7 +51,7 @@ export default function ConsultingContent() {
         <h2>프로젝트 개요</h2>
         <p>
           <strong>핵심 전략:</strong> 자영업자들이 겪는 실제 통증(매출은 많지만 이익은 적다)에 공감하여 관심을 유도합니다.
-          "20분이면 현황을 명확히 파악할 수 있다"는 메시지로 상담신청 유입을 확보하는 것이 목표입니다.
+          &ldquo;20분이면 현황을 명확히 파악할 수 있다&rdquo;는 메시지로 상담신청 유입을 확보하는 것이 목표입니다.
         </p>
 
         <p style={{ marginTop: '20px', marginBottom: '20px' }}>
@@ -81,7 +81,7 @@ export default function ConsultingContent() {
               <h3>Pain Point(사용자가 겪는 문제) 기반 랜딩 페이지</h3>
               <p>
                 홈페이지에서 자영업자가 겪는 4가지 실제 문제(수익 구조 파악, 자금 조달, 금융상품 선택, 현황 파악)를 명확하게 제시합니다.
-                각 문제에 대해 "신청 후 20분이면 해결된다"는 메시지로 신뢰도를 확보하고, 상담신청으로 유도합니다.
+                각 문제에 대해 &ldquo;신청 후 20분이면 해결된다&rdquo;는 메시지로 신뢰도를 확보하고, 상담신청으로 유도합니다.
               </p>
               <div className="project-tags">
                 <span>공감대 형성</span>
