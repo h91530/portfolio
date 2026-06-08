@@ -3,6 +3,15 @@
 import { useState, useEffect } from 'react';
 import { useWindows } from '../contexts/WindowContext';
 
+const projects = [
+  { id: 'about', label: '소개', icon: '/me.png' },
+  { id: 'telemon', label: '텔레몬', icon: '/telemon.svg' },
+  { id: '2fitreport', label: '2FitReport', icon: '/2fitreport.png' },
+  { id: 'yolo', label: 'YOLO AI', icon: '/ai.svg' },
+  { id: 'realestate', label: '부동산 API', icon: '/logo.png' },
+  { id: 'consulting', label: '컨설팅', icon: '/logo1.png' },
+];
+
 const getWeatherInfo = (code: number) => {
   const weatherMap: { [key: number]: { label: string; icon: string } } = {
     0: { label: '맑음', icon: '☀️' },
@@ -37,7 +46,7 @@ export default function Taskbar() {
   const [calendarOpen, setCalendarOpen] = useState(false);
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [weatherModalOpen, setWeatherModalOpen] = useState(false);
-  const { windows, activeId, taskbarClick } = useWindows();
+  const { windows, activeId, taskbarClick, openWindow } = useWindows();
   const openItems = Object.values(windows).filter((w) => w.open);
 
   useEffect(() => {
@@ -231,10 +240,24 @@ export default function Taskbar() {
               <h2>All apps</h2>
             </div>
             <div className="start-menu-content">
-              <div className="start-menu-item">📁 파일</div>
-              <div className="start-menu-item">⚙️ 설정</div>
-              <div className="start-menu-item">🔧 제어판</div>
-              <div className="start-menu-item">📊 작업 관리자</div>
+              {projects.map((project) => (
+                <div
+                  key={project.id}
+                  className="start-menu-item"
+                  onClick={() => {
+                    openWindow({ id: project.id, title: project.label, icon: project.icon, maximized: ['about', 'telemon', '2fitreport', 'yolo', 'realestate', 'consulting'].includes(project.id) });
+                    setStartMenuOpen(false);
+                  }}
+                  style={{ cursor: 'pointer' }}
+                >
+                  {project.icon.startsWith('/') ? (
+                    <img src={project.icon} alt="" style={{ width: '20px', height: '20px', marginRight: '8px' }} />
+                  ) : (
+                    <span style={{ marginRight: '8px' }}>{project.icon}</span>
+                  )}
+                  {project.label}
+                </div>
+              ))}
             </div>
             <div className="start-menu-footer">
               <button className="start-menu-btn">⏻️ 종료</button>
