@@ -251,9 +251,9 @@ export default function Taskbar() {
                   style={{ cursor: 'pointer' }}
                 >
                   {project.icon.startsWith('/') ? (
-                    <img src={project.icon} alt="" style={{ width: '20px', height: '20px', marginRight: '8px' }} />
+                    <img src={project.icon} alt="" style={{ width: '40px', height: '40px', marginRight: '20px' }} />
                   ) : (
-                    <span style={{ marginRight: '8px' }}>{project.icon}</span>
+                    <span style={{ marginRight: '20px', fontSize: '32px' }}>{project.icon}</span>
                   )}
                   {project.label}
                 </div>

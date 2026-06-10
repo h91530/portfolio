@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 export default function Login({ setIsLogin }: { setIsLogin: (value: boolean) => void }) {
   const [isLoggingIn, setIsLoggingIn] = useState(false);
   const [displayedText, setDisplayedText] = useState('');
-  const fullText = '안녕하세요. 풀스택을 지향하는 개발자 양태현입니다.';
+  const fullText = '안녕하세요. 웹개발자 양태현입니다.';
 
   useEffect(() => {
     let index = 0;
@@ -35,7 +35,9 @@ export default function Login({ setIsLogin }: { setIsLogin: (value: boolean) => 
       <div className="login-background" style={{ backgroundImage: 'url(/login.jpg)' }}></div>
       <div className="login-overlay">
         <div className="login-content">
-          <img src="/user.png" alt="User" className="user-image" />
+          <div className="user-image-wrap">
+            <img src="/user.png" alt="User" className="user-image" />
+          </div>
           <div className="login-username">
             {displayedText}
             <span className="typing-cursor">|</span>

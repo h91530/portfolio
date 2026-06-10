@@ -402,7 +402,6 @@ export default function Home() {
     { id: 'yolo', label: 'YOLO AI', icon: '/ai.svg' },
     { id: 'realestate', label: '부동산 API', icon: '/logo.png' },
     { id: 'consulting', label: '컨설팅', icon: '/logo1.png' },
-    { id: 'game', label: '슈퍼 점프', icon: '🎮' },
   ];
 
   const g = gs.current;

@@ -15,6 +15,15 @@ export default function FitReportContent() {
         </div>
         <h1>2FitReport</h1>
         <p className="about-tagline">피트니스 데이터 분석 및 보고서 플랫폼</p>
+        <div className="about-quick-links">
+          <a href="https://2fit.yangtae.site" target="_blank" rel="noreferrer">
+            사이트 방문
+          </a>
+        </div>
+        <p style={{ margin: '16px auto 0', fontSize: '16px', color: '#666', maxWidth: '640px', textAlign: 'center', lineHeight: '1.7' }}>
+          실제 기업에서 운영 중인 사이트입니다. 위 링크는 데모용으로 데이터베이스만 별도로 옮긴 환경이며,
+          개인정보 보호를 위해 실데이터 대신 임시 테스트 데이터를 넣어두었습니다.
+        </p>
       </section>
 
       <section className="telemon-images">
@@ -242,7 +251,6 @@ export default function FitReportContent() {
               <span>JSZip</span>
               <span>Swiper</span>
               <span>Chart.js</span>
-              <span>ESLint</span>
             </div>
           </div>
         </div>

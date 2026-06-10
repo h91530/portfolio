@@ -35,3 +35,6 @@ yarn-error.log*
 *.swp
 *.swo
 *~
+
+# Claude local settings (may contain secrets/tokens)
+.claude/

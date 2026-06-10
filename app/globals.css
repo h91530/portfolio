@@ -435,6 +435,8 @@ body {
   transition: background 0.15s ease;
   font-size: 14px;
   margin-bottom: 4px;
+  display: flex;
+  align-items: center;
 }
 
 .start-menu-item:hover {
@@ -1006,15 +1008,20 @@ body {
   cursor: not-allowed;
 }
 
-.user-image {
+.user-image-wrap {
   width: 160px;
   height: 160px;
   border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-image {
+  width: 110px;
+  height: 110px;
   object-fit: contain;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-  background-color: #d0d0d0;
-  padding: 25px;
-  box-sizing: border-box;
 }
 
 .login-image-full {
