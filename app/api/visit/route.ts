@@ -54,15 +54,15 @@ export async function POST(req: NextRequest) {
     try {
       const body = await req.json();
       if (body?.path) path = String(body.path);
-      // 클라이언트가 보낸 document.referrer = 실제 유입 경로
+      // 실제 유입 경로는 클라이언트의 document.referrer 뿐.
+      // 비어 있으면 "직접 방문/출처 불명"이므로 null 로 둔다.
+      // (요청 헤더 referer 는 /api/visit 을 호출한 포트폴리오 자기 주소라 의미 없음 → 폴백 금지)
       if (typeof body?.referrer === 'string' && body.referrer.trim() !== '') {
-        referer = body.referrer;
+        referer = body.referrer.trim();
       }
     } catch {
       /* body 없을 수 있음 */
     }
-    // 본문에 없으면 헤더 referer로 폴백
-    if (!referer) referer = req.headers.get('referer') || null;
 
     const { error } = await supabaseAdmin.from('portfolio_visits').insert([
       { ip, user_agent: ua, browser, os, device_type: deviceType, path, referer },
