@@ -185,7 +185,21 @@ export default function DashboardPage() {
                     </td>
                     <td>{v.os || '-'}</td>
                     <td>{v.browser || '-'}</td>
-                    <td className={styles.mono}>{fmtReferrer(v.referer)}</td>
+                    <td className={styles.mono}>
+                      {v.referer && v.referer.trim() !== '' ? (
+                        <a
+                          className={styles.refLink}
+                          href={v.referer}
+                          target="_blank"
+                          rel="noreferrer noopener"
+                          title={v.referer}
+                        >
+                          {fmtReferrer(v.referer)}
+                        </a>
+                      ) : (
+                        '직접 방문'
+                      )}
+                    </td>
                     <td className={styles.mono}>{v.path || '-'}</td>
                     <td>
                       <button className={styles.deleteBtn} onClick={() => deleteOne(v.id)}>

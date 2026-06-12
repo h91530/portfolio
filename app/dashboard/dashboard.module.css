@@ -113,6 +113,14 @@
   color: #374151;
 }
 
+.refLink {
+  color: #2563eb;
+  text-decoration: none;
+}
+.refLink:hover {
+  text-decoration: underline;
+}
+
 .badge {
   display: inline-block;
   padding: 3px 10px;
