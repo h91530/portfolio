@@ -87,6 +87,16 @@ export default function DashboardPage() {
     else alert('전체 삭제 실패');
   };
 
+  const fmtReferrer = (ref: string | null) => {
+    if (!ref || ref.trim() === '') return '직접 방문';
+    try {
+      const u = new URL(ref);
+      return u.hostname + (u.pathname !== '/' ? u.pathname : '');
+    } catch {
+      return ref;
+    }
+  };
+
   const fmt = (iso: string) => {
     const d = new Date(iso);
     const kst = new Date(d.getTime() + 9 * 60 * 60 * 1000);
@@ -160,6 +170,7 @@ export default function DashboardPage() {
                   <th>기기</th>
                   <th>OS</th>
                   <th>브라우저</th>
+                  <th>유입 경로</th>
                   <th>경로</th>
                   <th></th>
                 </tr>
@@ -174,6 +185,7 @@ export default function DashboardPage() {
                     </td>
                     <td>{v.os || '-'}</td>
                     <td>{v.browser || '-'}</td>
+                    <td className={styles.mono}>{fmtReferrer(v.referer)}</td>
                     <td className={styles.mono}>{v.path || '-'}</td>
                     <td>
                       <button className={styles.deleteBtn} onClick={() => deleteOne(v.id)}>

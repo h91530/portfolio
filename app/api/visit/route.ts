@@ -48,15 +48,21 @@ export async function POST(req: NextRequest) {
     const ua = req.headers.get('user-agent') || '';
     const { os, browser, deviceType } = parseUA(ua);
     const ip = getClientIp(req);
-    const referer = req.headers.get('referer') || null;
 
     let path = '/';
+    let referer: string | null = null;
     try {
       const body = await req.json();
       if (body?.path) path = String(body.path);
+      // 클라이언트가 보낸 document.referrer = 실제 유입 경로
+      if (typeof body?.referrer === 'string' && body.referrer.trim() !== '') {
+        referer = body.referrer;
+      }
     } catch {
       /* body 없을 수 있음 */
     }
+    // 본문에 없으면 헤더 referer로 폴백
+    if (!referer) referer = req.headers.get('referer') || null;
 
     const { error } = await supabaseAdmin.from('portfolio_visits').insert([
       { ip, user_agent: ua, browser, os, device_type: deviceType, path, referer },

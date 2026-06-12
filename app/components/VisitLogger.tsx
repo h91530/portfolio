@@ -15,7 +15,10 @@ export default function VisitLogger() {
       fetch('/api/visit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ path: window.location.pathname }),
+        body: JSON.stringify({
+          path: window.location.pathname,
+          referrer: document.referrer || '', // 실제 유입 경로 (외부 사이트)
+        }),
         keepalive: true,
       }).catch(() => {});
     } catch {
