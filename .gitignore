@@ -38,3 +38,6 @@ yarn-error.log*
 
 # Claude local settings (may contain secrets/tokens)
 .claude/
+
+# Build info
+*.tsbuildinfo
