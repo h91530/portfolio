@@ -14,7 +14,7 @@ export default function FitReportContent() {
           <img src="/2fitreport.png" alt="2FitReport" />
         </div>
         <h1>2FitReport</h1>
-        <p className="about-tagline">피트니스 데이터 분석 및 보고서 플랫폼</p>
+        <p className="about-tagline">기업 문서 심사 워크플로우 시스템</p>
         <div className="about-quick-links">
           <a href="https://2fit.yangtae.site" target="_blank" rel="noreferrer">
             사이트 방문
@@ -48,72 +48,120 @@ export default function FitReportContent() {
       <section className="about-section" id="overview">
         <h2>프로젝트 개요</h2>
         <p>
-          <strong>2FitReport</strong>는 <strong>실제 기업에서 운영 중인 문서 관리, 협업, 실적 통계를 통합한 차세대 엔터프라이즈 업무 시스템</strong>입니다.
-          Next.js 프레임워크로 프론트엔드와 백엔드를 모두 구축했으며,
-          웹 기술을 기반으로 데스크톱 애플리케이션으로 프로그램화하여 사용자 경험을 극대화했습니다.
-          기존의 종이 기반, 이메일 기반 문서 관리 방식을 완전히 디지털화하여 조직의 업무 효율성을 극대화하고,
-          데이터 기반의 의사결정을 가능하게 합니다.
+          <strong>2FitReport</strong>는 <strong>기업 대출 심사 과정에서 발생하는 서류 처리 업무를 디지털화한 기업 내부용 웹 애플리케이션</strong>입니다.
           (<span style={{ backgroundColor: '#fff3cd', padding: '2px 6px', borderRadius: '4px', fontWeight: '600' }}>실제 운영 중인 시스템이므로 개인정보 보호를 위해 스크린샷의 민감한 정보는 검은색으로 처리했습니다.</span>)
         </p>
 
         <p style={{ marginTop: '20px', marginBottom: '20px' }}>
-          현대 기업들은 매일 수백 건의 문서를 생성하고 관리해야 합니다. 기존의 이메일과 수기 기반 방식에서는
-          문서의 현황 파악, 승인 추적, 데이터 분석이 매우 어렵고 시간이 많이 소요됩니다.
-          2FitReport는 이러한 문제를 완전히 해결하기 위해 설계되었으며,
-          중앙 집중식 문서 관리, 자동화된 워크플로우, 실시간 협업 환경을 제공합니다.
+          기존에는 영업자가 고객사 서류를 카카오톡이나 이메일로 전달하고 검수자가 수동으로 확인하는 방식이라,
+          진행 상태 파악이 어렵고 누락이 잦았습니다. 2FitReport는 이 모든 과정을 하나의 플랫폼 안에서
+          추적할 수 있도록 만들어, 어느 단계에서 누가 무엇을 해야 하는지 한눈에 파악할 수 있게 합니다.
         </p>
 
         <p style={{ marginTop: '20px', marginBottom: '20px' }}>
-          본 시스템의 핵심은 <strong>사용자 경험 중심의 설계</strong>입니다. 복잡한 기업용 시스템이지만
-          직관적인 인터페이스와 빠른 성능으로 모든 직급의 사용자가 쉽게 사용할 수 있습니다.
-          웹 기술 기반으로 구축되었으며, 데스크톱 애플리케이션으로 프로그램화하여
-          데스크톱 소프트웨어 수준의 사용 경험을 제공합니다.
-        </p>
-
-        <p style={{ marginTop: '20px', marginBottom: '20px' }}>
-          <strong>기술 아키텍처:</strong> 전체 시스템은 Next.js를 기반으로 구축되어 API Routes로 백엔드 로직을 처리하고,
-          PostgreSQL 데이터베이스를 사용하여 안정적인 데이터 관리를 제공합니다.
-          PDF.js로 웹 기반 문서 뷰어를 구현했고, Chart.js를 활용해 실시간 통계 대시보드를 제공합니다.
-          JSZip으로 대량 파일의 압축 다운로드를 지원하며, 강력한 권한 제어와 활동 로그로 보안성을 보장합니다.
-        </p>
-
-        <p style={{ marginTop: '20px', marginBottom: '20px' }}>
-          <strong>주요 기능:</strong> 5단계 문서 처리 워크플로우(영업자 제출 → 검수자 검토 → 대표실무자 배정 → 실무자 처리 → 대표자 승인)로 체계적인 문서 관리를 구현합니다.
-          메모와 댓글을 통한 실시간 협업으로 피드백을 빠르게 주고받으며, 역할 기반 권한 관리로 민감한 정보를 보호합니다.
-          모든 활동이 자동으로 기록되어 규정 준수와 감시를 지원하고, 통계 대시보드로 조직의 현황을 한눈에 파악할 수 있습니다.
+          <strong>담당 역할:</strong> 프리랜서로 참여하여 <strong>프론트엔드부터 백엔드 API, 데이터베이스 설계까지 전체를 단독으로 담당</strong>했습니다.
         </p>
 
         <p>
-          <strong>주요 사용자:</strong> 영업자(문서 제출자), 검수자(검토), 대표실무자(배정), 실무자(처리), 대표자(최종 승인)
+          <strong>주요 사용자:</strong> 영업자(문서 제출), 검수자(검토·보완요청), 대표실무자(실무자 배정), 실무자(처리), 대표자(최종 승인)
           <br />
-          <strong>핵심 목표:</strong> 문서 관리의 완전 디지털화, 협업 효율성 극대화, 실시간 현황 파악, 규정 준수 자동화
+          <strong>핵심 목표:</strong> 서류 처리 흐름의 완전 디지털화, 진행 상태 실시간 추적, 직책 기반 권한 통제
         </p>
       </section>
 
       <section className="about-section">
-        <h2>주요 기능 및 프로세스</h2>
-        <div className="about-projects">
-          <article className="project-card">
-            <div className="project-content">
-              <h3>5단계 문서 처리 워크플로우</h3>
-              <p>
-                <strong>영업자가 문서를 제출</strong>하면 검수자가 검토 및 검증을 진행합니다.
-                검수 완료 후 <strong>대표실무자가 실무자를 배정</strong>하고, 배정된 실무자가 완료 처리를 합니다.
-                최종적으로 대표자가 검증하여 승인 완료됩니다.
-              </p>
-              <p style={{ marginTop: '12px', fontSize: '14px' }}>
-                <strong>문서 진행 단계:</strong> 상담요청 → 서류요청 → 분석 → 심사 → 진행 → 승인
-                <br />각 단계에서 메모와 댓글로 실시간 협업이 가능하며, 거부 또는 수정 요청이 있으면 이전 담당자에게 즉시 알림이 전달됩니다.
-              </p>
-              <div className="project-tags">
-                <span>5단계 프로세스</span>
-                <span>5단계 진행상태</span>
-                <span>실시간 협업</span>
-              </div>
-            </div>
-            <img src="/2fit100.png" alt="5단계 문서 처리 워크플로우" className="project-image" />
-          </article>
+        <h2>기술적 의사결정</h2>
 
+        <article className="project-card">
+          <div className="project-content">
+            <h3>기술 스택 선택 이유 — Next.js 풀스택</h3>
+            <p>
+              프론트엔드와 백엔드를 모두 <strong>Next.js</strong>로 구성했습니다.
+              핵심 이유는 <strong>API Routes</strong>입니다. 별도 서버 없이 같은 프로젝트 안에서 백엔드 API를 작성할 수 있어,
+              프론트와 백엔드를 하나의 레포지토리에서 혼자 관리하기에 적합했습니다.
+            </p>
+            <p style={{ marginTop: '12px' }}>
+              데이터베이스·파일 저장·인증은 <strong>Supabase</strong>로 통합했습니다. PostgreSQL, 스토리지, 인증을
+              한 플랫폼에서 제공해 인프라 구성 시간을 크게 줄였습니다. 배포는 <strong>Vercel</strong>로,
+              코드를 푸시하면 자동으로 빌드 후 배포되는 파이프라인을 구성했습니다.
+            </p>
+            <div className="project-tags">
+              <span>Next.js API Routes</span>
+              <span>단일 레포 관리</span>
+              <span>Supabase</span>
+              <span>Vercel 자동 배포</span>
+            </div>
+          </div>
+        </article>
+
+        <article className="project-card">
+          <div className="project-content">
+            <h3>워크플로우 비즈니스 로직 설계 — 권한 로직 중앙화</h3>
+            <p>
+              이 프로젝트에서 가장 복잡한 부분은 워크플로우 로직이었습니다. 문서는
+              <strong> 상담요청 → 서류요청 → 분석 → 심사 → 진행 → 승인요청 → 승인</strong> 총 7단계를 순서대로 거치며,
+              각 단계마다 어떤 직책이 어떤 행동을 할 수 있는지가 전부 다릅니다.
+            </p>
+            <p style={{ marginTop: '12px' }}>
+              예를 들어 분석에서 심사로 넘어가려면 반드시 실무자가 배정되어 있어야 하고, 최종 승인은 대표자만 가능하며,
+              검수자는 보완 요청만 할 수 있고 단계를 넘길 수는 없습니다.
+              <strong> 5개 직책 × 7단계</strong>의 조합이 너무 많아, 권한 판단 로직을 <strong>permissions.ts 한 파일에 전부 모아 중앙화</strong>했습니다.
+              화면에서도 백엔드 API에서도 이 파일의 함수를 호출하는 방식으로 일관성을 유지했습니다.
+            </p>
+            <div className="project-tags">
+              <span>7단계 상태 전이</span>
+              <span>직책별 분기</span>
+              <span>permissions.ts 중앙화</span>
+            </div>
+          </div>
+          <img src="/2fit100.png" alt="7단계 문서 진행 워크플로우" className="project-image" />
+        </article>
+
+        <article className="project-card">
+          <div className="project-content">
+            <h3>직책 기반 권한 제어 — 프론트 + 백엔드 이중 검증</h3>
+            <p>
+              화면에서는 로그인한 사용자의 직책을 기반으로 버튼을 <strong>조건부 렌더링</strong>했습니다.
+              React에서 조건이 false면 버튼이 DOM에 아예 존재하지 않아, CSS로 숨기는 것과 달리 개발자도구로도 찾을 수 없습니다.
+            </p>
+            <p style={{ marginTop: '12px' }}>
+              다만 화면에서 버튼을 없애도 API 주소를 직접 호출하면 우회가 가능합니다. 그래서
+              <strong> 백엔드 API에서도 쿠키의 토큰으로 사용자를 식별하고 DB에서 직책을 조회해, 권한이 없으면 403을 반환</strong>합니다.
+              화면과 서버 양쪽에서 이중으로 검증하는 구조입니다.
+            </p>
+            <div className="project-tags">
+              <span>조건부 렌더링</span>
+              <span>서버 측 403 검증</span>
+              <span>이중 검증</span>
+            </div>
+          </div>
+          <img src="/2fit4.png" alt="직책 기반 권한 제어" className="project-image" style={{ minHeight: '700px', objectFit: 'cover' }} />
+        </article>
+
+        <article className="project-card">
+          <div className="project-content">
+            <h3>상태관리 — Context API + 로컬 useState</h3>
+            <p>
+              상태관리는 Redux 같은 별도 라이브러리 없이 React의 <strong>Context API</strong>와 로컬 <strong>useState</strong>로만 구성했습니다.
+              전역으로 공유해야 하는 건 로그인한 사용자 정보(이름·직책·소속)뿐이라, 이를 <strong>AuthProvider 컨텍스트</strong>에 담아
+              어느 컴포넌트에서든 꺼내 쓸 수 있게 했습니다.
+            </p>
+            <p style={{ marginTop: '12px' }}>
+              나머지 문서 목록·단계 상태는 각 페이지 컴포넌트에서 useState로 관리했습니다. 페이지 간 공유가 필요 없는 데이터를
+              굳이 전역으로 올리면 오히려 상태 변화 추적이 어려워지기 때문입니다. <strong>규모에 맞는 최소한의 상태관리</strong>를 선택했습니다.
+            </p>
+            <div className="project-tags">
+              <span>Context API</span>
+              <span>AuthProvider</span>
+              <span>로컬 상태 분리</span>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section className="about-section">
+        <h2>주요 기능</h2>
+        <div className="about-projects">
           <article className="project-card">
             <div className="project-content">
               <h3>메모 및 댓글 기반 협업</h3>
@@ -133,35 +181,23 @@ export default function FitReportContent() {
 
           <article className="project-card">
             <div className="project-content">
-              <h3>역할 기반 권한 관리 (RBAC)</h3>
+              <h3>PDF 자동 파싱 — 텍스트 추출 &amp; 입력 자동 채움</h3>
               <p>
-                영업자, 검수자, 대표실무자, 실무자, 대표자 등 각 역할별로 정확한 권한이 설정됩니다.
-                영업자는 자신의 문서 제출과 수정만 가능하고, 검수자는 검수 단계에서 피드백을 제공합니다.
-                대표실무자는 실무자를 배정하고, 실무자는 배정된 문서의 처리만 가능하며, 대표자만 최종 승인과 전체 조회가 가능합니다.
+                <code>pdfjs-dist</code>(PDF.js 기반)로 <strong>브라우저에서 직접 PDF를 파싱</strong>합니다.
+                페이지 텍스트를 문자열로 합친 뒤 <strong>정규식으로 필요한 값만 찾아 입력 필드에 자동으로 채웁니다</strong>
+                (설립일자·회사 주소·재무 데이터 등).
+              </p>
+              <p style={{ marginTop: '12px' }}>
+                추출 텍스트에 글자 사이 공백이 끼는 문제(&lsquo;설 립 년 월&rsquo;)는 정규식에 <code>[\s]*</code>를 넣어 해결했고,
+                이미지는 <strong>Canvas 렌더링 후 좌표를 잘라 base64로 변환</strong>해 첨부했습니다.
+                용량이 큰 PDF.js는 <strong>동적 import</strong>로 필요 시점에만 로드합니다.
               </p>
               <div className="project-tags">
-                <span>5단계 권한 구조</span>
-                <span>단계별 접근 제어</span>
-                <span>보안 강화</span>
-              </div>
-            </div>
-            <img src="/2fit4.png" alt="역할 기반 권한 관리" className="project-image" style={{ minHeight: '700px', objectFit: 'cover' }} />
-          </article>
-
-          <article className="project-card">
-            <div className="project-content">
-              <h3>PDF 뷰어 및 자동 텍스트 추출</h3>
-              <p>
-                PDF.js를 활용하여 웹 브라우저에서 직접 PDF를 열람할 수 있습니다.
-                <strong>PDF 파일을 업로드하면 자동으로 텍스트가 추출되어 input 영역에 입력</strong>되고,
-                <strong>PDF 안에 있는 이미지도 자동으로 감지되어 서버에 업로드</strong>됩니다.
-                사용자는 문서의 내용을 수동으로 입력할 필요 없이 바로 검수 및 승인 단계로 진행할 수 있습니다.
-                문서 검색 기능과 함께 효율적인 문서 관리가 가능합니다.
-              </p>
-              <div className="project-tags">
-                <span>PDF.js 뷰어</span>
-                <span>자동 텍스트 추출</span>
-                <span>자동 입력</span>
+                <span>pdfjs-dist</span>
+                <span>정규식 추출</span>
+                <span>공백 보정 [\s]*</span>
+                <span>Canvas → base64</span>
+                <span>동적 import</span>
               </div>
             </div>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', width: '100%' }}>
@@ -172,7 +208,7 @@ export default function FitReportContent() {
 
           <article className="project-card">
             <div className="project-content">
-              <h3>파일 관리 및 다운로드</h3>
+              <h3>파일 관리 및 일괄 다운로드</h3>
               <p>
                 여러 문서를 선택하여 ZIP 파일로 일괄 다운로드할 수 있습니다.
                 JSZip을 활용하여 클라이언트 측에서 효율적으로 압축 파일을 생성합니다.
@@ -189,28 +225,26 @@ export default function FitReportContent() {
 
           <article className="project-card">
             <div className="project-content">
-              <h3>활동 로그 및 감시 추적</h3>
+              <h3>활동 로그 및 감사 추적</h3>
               <p>
-                문서 생성, 수정, 제출, 검수, 승인 등 모든 작업이 타임스탬프와 담당자 정보와 함께 자동으로 기록됩니다.
-                누가 언제 무엇을 했는지 완벽하게 추적할 수 있어 규정 준수와 감사 대응이 용이합니다.
-                분쟁이나 문제 발생 시 전체 히스토리를 검토하여 원인을 파악할 수 있습니다.
+                문서 생성·수정·제출·검수·승인 등 모든 작업이 타임스탬프·담당자 정보와 함께 자동으로 기록됩니다.
+                누가 언제 무엇을 했는지 추적할 수 있어 분쟁이나 문제 발생 시 전체 히스토리로 원인을 파악할 수 있습니다.
               </p>
               <div className="project-tags">
                 <span>활동 로그</span>
                 <span>변경 이력</span>
-                <span>규정 준수</span>
+                <span>감사 추적</span>
               </div>
             </div>
-            <img src="/2fit95.png" alt="활동 로그 및 감시 추적" className="project-image" />
+            <img src="/2fit95.png" alt="활동 로그 및 감사 추적" className="project-image" />
           </article>
 
           <article className="project-card">
             <div className="project-content">
               <h3>통계 대시보드 및 실적 분석</h3>
               <p>
-                Chart.js를 활용하여 조직 내 문서 제출, 검수, 승인 현황을 시각적으로 표시합니다.
-                개인별·팀별 실적을 실시간으로 분석하여 조직의 업무 효율성을 파악할 수 있습니다.
-                데이터 기반의 의사결정을 지원하는 상세한 통계 정보를 제공합니다.
+                Chart.js를 활용하여 조직 내 문서 제출·검수·승인 현황을 시각적으로 표시합니다.
+                개인별·팀별 실적을 실시간으로 분석하여 데이터 기반의 의사결정을 지원합니다.
               </p>
               <div className="project-tags">
                 <span>Chart.js 시각화</span>
@@ -234,6 +268,7 @@ export default function FitReportContent() {
             <div className="skill-chips">
               <span>Next.js</span>
               <span>TypeScript</span>
+              <span>Context API</span>
             </div>
           </div>
           <div className="skill-group">
@@ -254,6 +289,34 @@ export default function FitReportContent() {
             </div>
           </div>
         </div>
+      </section>
+
+      <section className="about-section">
+        <h2>어려웠던 점과 해결</h2>
+        <article className="project-card">
+          <div className="project-content">
+            <h3>영업자 재배정 시 권한 충돌 → 데이터 모델로 해결</h3>
+            <p>
+              가장 막혔던 지점은 <strong>영업자 재배정 시 권한 충돌</strong>이었습니다. 영업자 A가 만든 문서를 영업자 B에게
+              재배정하는 기능이 있는데, 재배정 후 A와 B 중 누가 그 문서를 수정할 수 있는지가 불명확했습니다.
+              담당자를 <code>user_id</code> 하나로만 관리했더니, 재배정하는 순간 A가 자기 문서에 접근하지 못하고,
+              반대로 둘 다 허용하면 권한이 너무 넓어졌습니다.
+            </p>
+            <p style={{ marginTop: '12px' }}>
+              해결책으로 <strong>컬럼을 두 개로 분리</strong>했습니다. <code>submitter_id</code>는 원래 생성자,
+              <code>user_id</code>는 현재 담당자를 저장합니다. 백엔드에서 권한을 검사할 때 두 필드를 모두 확인해서,
+              A는 자신이 만든 문서를 계속 조회할 수 있고 B는 현재 배정된 단계에서만 수정하도록 분리했습니다.
+            </p>
+            <p style={{ marginTop: '12px', fontSize: '14px', color: '#555' }}>
+              이 경험에서 <strong>비즈니스 요구사항이 복잡할수록 데이터베이스 구조를 먼저 명확히 잡아야 한다</strong>는 것을 배웠습니다.
+              코드보다 데이터 모델이 먼저라는 걸 크게 느낀 사례입니다.
+            </p>
+            <div className="project-tags">
+              <span>submitter_id / user_id 분리</span>
+              <span>데이터 모델 우선 설계</span>
+            </div>
+          </div>
+        </article>
       </section>
     </div>
   );
