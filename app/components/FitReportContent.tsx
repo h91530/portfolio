@@ -59,7 +59,7 @@ export default function FitReportContent() {
         </p>
 
         <p style={{ marginTop: '20px', marginBottom: '20px' }}>
-          <strong>담당 역할:</strong> 프리랜서로 참여하여 <strong>프론트엔드부터 백엔드 API, 데이터베이스 설계까지 전체를 단독으로 담당</strong>했습니다.
+          <strong>담당 역할:</strong> 프리랜서로 참여하여 <strong>프론트엔드부터 API, DB 설계까지 단독으로 담당</strong>하며 전체 워크플로우 구조를 직접 설계했습니다.
         </p>
 
         <p>
@@ -72,18 +72,17 @@ export default function FitReportContent() {
       <section className="about-section">
         <h2>기술적 의사결정</h2>
 
+        <div className="about-projects">
         <article className="project-card">
           <div className="project-content">
             <h3>기술 스택 선택 이유 — Next.js 풀스택</h3>
             <p>
-              프론트엔드와 백엔드를 모두 <strong>Next.js</strong>로 구성했습니다.
-              핵심 이유는 <strong>API Routes</strong>입니다. 별도 서버 없이 같은 프로젝트 안에서 백엔드 API를 작성할 수 있어,
-              프론트와 백엔드를 하나의 레포지토리에서 혼자 관리하기에 적합했습니다.
+              프론트와 백엔드를 모두 <strong>Next.js 기반 풀스택 구조</strong>로 구성했습니다.
+              <strong>API Routes로 둘을 한 레포에서 관리해 개발 속도와 유지보수를 동시에 고려</strong>했습니다.
             </p>
             <p style={{ marginTop: '12px' }}>
-              데이터베이스·파일 저장·인증은 <strong>Supabase</strong>로 통합했습니다. PostgreSQL, 스토리지, 인증을
-              한 플랫폼에서 제공해 인프라 구성 시간을 크게 줄였습니다. 배포는 <strong>Vercel</strong>로,
-              코드를 푸시하면 자동으로 빌드 후 배포되는 파이프라인을 구성했습니다.
+              인프라는 <strong>Supabase</strong>로 통합해 인증·DB·스토리지 복잡도를 줄였고,
+              배포는 <strong>Vercel</strong>로 푸시 시 자동 빌드·배포되도록 구성했습니다.
             </p>
             <div className="project-tags">
               <span>Next.js API Routes</span>
@@ -96,22 +95,18 @@ export default function FitReportContent() {
 
         <article className="project-card">
           <div className="project-content">
-            <h3>워크플로우 비즈니스 로직 설계 — 권한 로직 중앙화</h3>
+            <h3>워크플로우 비즈니스 로직 설계</h3>
             <p>
-              이 프로젝트에서 가장 복잡한 부분은 워크플로우 로직이었습니다. 문서는
-              <strong> 상담요청 → 서류요청 → 분석 → 심사 → 진행 → 승인요청 → 승인</strong> 총 7단계를 순서대로 거치며,
-              각 단계마다 어떤 직책이 어떤 행동을 할 수 있는지가 전부 다릅니다.
+              문서는 <strong>상담요청 → 서류요청 → 분석 → 심사 → 진행 → 승인요청 → 승인</strong> 총 7단계 상태를 가지며,
+              각 단계마다 직책별로 <strong>수행할 수 있는 액션이 다르게 제한되도록 설계</strong>했습니다.
             </p>
             <p style={{ marginTop: '12px' }}>
-              예를 들어 분석에서 심사로 넘어가려면 반드시 실무자가 배정되어 있어야 하고, 최종 승인은 대표자만 가능하며,
-              검수자는 보완 요청만 할 수 있고 단계를 넘길 수는 없습니다.
-              <strong> 5개 직책 × 7단계</strong>의 조합이 너무 많아, 권한 판단 로직을 <strong>permissions.ts 한 파일에 전부 모아 중앙화</strong>했습니다.
-              화면에서도 백엔드 API에서도 이 파일의 함수를 호출하는 방식으로 일관성을 유지했습니다.
+              예를 들어 검수자는 단계 이동 권한은 없고 보완 요청만 가능하며, 최종 승인 권한은 대표자에게만 부여됩니다.
             </p>
             <div className="project-tags">
-              <span>7단계 상태 전이</span>
-              <span>직책별 분기</span>
-              <span>permissions.ts 중앙화</span>
+              <span>7단계 워크플로우</span>
+              <span>직책별 행동 분기</span>
+              <span>상태 전이 설계</span>
             </div>
           </div>
           <img src="/2fit100.png" alt="7단계 문서 진행 워크플로우" className="project-image" />
@@ -119,36 +114,14 @@ export default function FitReportContent() {
 
         <article className="project-card">
           <div className="project-content">
-            <h3>직책 기반 권한 제어 — 프론트 + 백엔드 이중 검증</h3>
-            <p>
-              화면에서는 로그인한 사용자의 직책을 기반으로 버튼을 <strong>조건부 렌더링</strong>했습니다.
-              React에서 조건이 false면 버튼이 DOM에 아예 존재하지 않아, CSS로 숨기는 것과 달리 개발자도구로도 찾을 수 없습니다.
-            </p>
-            <p style={{ marginTop: '12px' }}>
-              다만 화면에서 버튼을 없애도 API 주소를 직접 호출하면 우회가 가능합니다. 그래서
-              <strong> 백엔드 API에서도 쿠키의 토큰으로 사용자를 식별하고 DB에서 직책을 조회해, 권한이 없으면 403을 반환</strong>합니다.
-              화면과 서버 양쪽에서 이중으로 검증하는 구조입니다.
-            </p>
-            <div className="project-tags">
-              <span>조건부 렌더링</span>
-              <span>서버 측 403 검증</span>
-              <span>이중 검증</span>
-            </div>
-          </div>
-          <img src="/2fit4.png" alt="직책 기반 권한 제어" className="project-image" style={{ minHeight: '700px', objectFit: 'cover' }} />
-        </article>
-
-        <article className="project-card">
-          <div className="project-content">
             <h3>상태관리 — Context API + 로컬 useState</h3>
             <p>
-              상태관리는 Redux 같은 별도 라이브러리 없이 React의 <strong>Context API</strong>와 로컬 <strong>useState</strong>로만 구성했습니다.
-              전역으로 공유해야 하는 건 로그인한 사용자 정보(이름·직책·소속)뿐이라, 이를 <strong>AuthProvider 컨텍스트</strong>에 담아
-              어느 컴포넌트에서든 꺼내 쓸 수 있게 했습니다.
+              상태 변경 범위가 작고 전역 상태가 인증 정보 중심이기 때문에{' '}
+              <strong>Redux나 Zustand 대신 Context API와 useState</strong>로 상태를 구성했습니다.
             </p>
             <p style={{ marginTop: '12px' }}>
-              나머지 문서 목록·단계 상태는 각 페이지 컴포넌트에서 useState로 관리했습니다. 페이지 간 공유가 필요 없는 데이터를
-              굳이 전역으로 올리면 오히려 상태 변화 추적이 어려워지기 때문입니다. <strong>규모에 맞는 최소한의 상태관리</strong>를 선택했습니다.
+              전역으로는 로그인한 사용자 정보만 <strong>AuthProvider</strong>로 관리하고, 문서·단계 상태는 페이지 단위로 분리했습니다.
+              <strong>전역 상태를 최소화해 데이터 흐름을 단순하게 유지하는 방향으로 구조를 설계</strong>했습니다.
             </p>
             <div className="project-tags">
               <span>Context API</span>
@@ -157,6 +130,7 @@ export default function FitReportContent() {
             </div>
           </div>
         </article>
+        </div>
       </section>
 
       <section className="about-section">
@@ -183,14 +157,12 @@ export default function FitReportContent() {
             <div className="project-content">
               <h3>PDF 자동 파싱 — 텍스트 추출 &amp; 입력 자동 채움</h3>
               <p>
-                <code>pdfjs-dist</code>(PDF.js 기반)로 <strong>브라우저에서 직접 PDF를 파싱</strong>합니다.
-                페이지 텍스트를 문자열로 합친 뒤 <strong>정규식으로 필요한 값만 찾아 입력 필드에 자동으로 채웁니다</strong>
-                (설립일자·회사 주소·재무 데이터 등).
+                <code>pdfjs-dist</code>를 사용해 <strong>브라우저에서 PDF를 직접 파싱</strong>하고,
+                텍스트를 <strong>정규식으로 추출해 입력 필드를 자동으로 채우도록</strong> 구현했습니다.
               </p>
               <p style={{ marginTop: '12px' }}>
-                추출 텍스트에 글자 사이 공백이 끼는 문제(&lsquo;설 립 년 월&rsquo;)는 정규식에 <code>[\s]*</code>를 넣어 해결했고,
-                이미지는 <strong>Canvas 렌더링 후 좌표를 잘라 base64로 변환</strong>해 첨부했습니다.
-                용량이 큰 PDF.js는 <strong>동적 import</strong>로 필요 시점에만 로드합니다.
+                이미지 페이지는 <strong>Canvas로 변환해 base64로 첨부</strong>했고,
+                PDF.js는 <strong>동적 import</strong>로 초기 로딩을 최적화했습니다.
               </p>
               <div className="project-tags">
                 <span>pdfjs-dist</span>
@@ -228,7 +200,7 @@ export default function FitReportContent() {
               <h3>활동 로그 및 감사 추적</h3>
               <p>
                 문서 생성·수정·제출·검수·승인 등 모든 작업이 타임스탬프·담당자 정보와 함께 자동으로 기록됩니다.
-                누가 언제 무엇을 했는지 추적할 수 있어 분쟁이나 문제 발생 시 전체 히스토리로 원인을 파악할 수 있습니다.
+                누가 언제 무엇을 했는지 추적할 수 있어, 문제가 생겼을 때 전체 히스토리로 원인을 빠르게 파악할 수 있습니다.
               </p>
               <div className="project-tags">
                 <span>활동 로그</span>
@@ -295,25 +267,21 @@ export default function FitReportContent() {
         <h2>어려웠던 점과 해결</h2>
         <article className="project-card">
           <div className="project-content">
-            <h3>영업자 재배정 시 권한 충돌 → 데이터 모델로 해결</h3>
+            <h3>복잡한 권한 규칙을 일관되게 유지하는 문제</h3>
             <p>
-              가장 막혔던 지점은 <strong>영업자 재배정 시 권한 충돌</strong>이었습니다. 영업자 A가 만든 문서를 영업자 B에게
-              재배정하는 기능이 있는데, 재배정 후 A와 B 중 누가 그 문서를 수정할 수 있는지가 불명확했습니다.
-              담당자를 <code>user_id</code> 하나로만 관리했더니, 재배정하는 순간 A가 자기 문서에 접근하지 못하고,
-              반대로 둘 다 허용하면 권한이 너무 넓어졌습니다.
+              가장 큰 문제는 <strong>권한 로직이 화면과 서버에 분산되어 있어 수정 시 불일치가 발생하는 구조</strong>였습니다.
             </p>
             <p style={{ marginTop: '12px' }}>
-              해결책으로 <strong>컬럼을 두 개로 분리</strong>했습니다. <code>submitter_id</code>는 원래 생성자,
-              <code>user_id</code>는 현재 담당자를 저장합니다. 백엔드에서 권한을 검사할 때 두 필드를 모두 확인해서,
-              A는 자신이 만든 문서를 계속 조회할 수 있고 B는 현재 배정된 단계에서만 수정하도록 분리했습니다.
+              이를 해결하기 위해 권한 판단 로직을 <strong><code>canEditDocument</code> 함수로 단일화</strong>하고,
+              <strong>프론트엔드는 UI 제어만 담당하고, 서버는 최종 검증만 수행</strong>하도록 책임을 분리했습니다.
             </p>
             <p style={{ marginTop: '12px', fontSize: '14px', color: '#555' }}>
-              이 경험에서 <strong>비즈니스 요구사항이 복잡할수록 데이터베이스 구조를 먼저 명확히 잡아야 한다</strong>는 것을 배웠습니다.
-              코드보다 데이터 모델이 먼저라는 걸 크게 느낀 사례입니다.
+              이 경험을 통해 기능 구현보다 <strong>규칙과 책임의 위치를 먼저 설계하는 것이 유지보수에 더 큰 영향을 준다</strong>는 걸 경험했습니다.
             </p>
             <div className="project-tags">
-              <span>submitter_id / user_id 분리</span>
-              <span>데이터 모델 우선 설계</span>
+              <span>권한 규칙 중앙화</span>
+              <span>canEditDocument</span>
+              <span>프론트+서버 이중 검증</span>
             </div>
           </div>
         </article>
