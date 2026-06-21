@@ -55,11 +55,7 @@ export default function TelemonContent() {
         </p>
 
         <p>
-          단순 게시판이 아니라 <strong>본인인증·결제·실시간 알림까지 갖춘 실제 서비스</strong>가 필요했고, PC 웹과 모바일 웹 환경을 모두 지원해야 했습니다.
-        </p>
-
-        <p>
-          이를 위해 <strong>PC 버전과 모바일 버전을 각각 구축</strong>하고, 회원·공고·지원·결제·관리자 기능을 하나의 플랫폼으로 통합했습니다.
+          <strong>본인인증·실시간 알림 등 실제 서비스에 필요한 기능</strong>을 갖춘 상용 플랫폼으로, <strong>PC 웹과 모바일 웹을 각각 구축</strong>해 두 환경을 모두 지원합니다.
         </p>
 
         <p style={{ marginTop: '16px', marginBottom: '12px' }}>
@@ -91,19 +87,19 @@ export default function TelemonContent() {
                 안정적인 운영과 빠른 기능 확장을 위해 검증된 <strong>PHP · MySQL 기반 서버 구조</strong>를 선택했습니다.
               </p>
               <p style={{ marginBottom: '12px' }}>
-                <strong>PHP(MVC 구조):</strong> 회원·공고·검색·결제 등 <strong>모든 기능을 절차적 레거시 코드가 아닌 MVC 패턴으로 구조화</strong>했습니다. 요청 라우팅(Controller)·비즈니스 로직(Model)·화면(View)을 분리해 코드의 재사용성과 유지보수성을 높였습니다.
+                <strong>PHP(MVC 구조):</strong> 회원·공고·검색·지원 등 <strong>모든 기능을 절차적 레거시 코드가 아닌 MVC 패턴으로 구조화</strong>했습니다. 요청 라우팅(Controller)·비즈니스 로직(Model)·화면(View)을 분리해 코드의 재사용성과 유지보수성을 높였습니다.
               </p>
               <p style={{ marginBottom: '12px' }}>
                 <strong>세션 인증:</strong> 로그인 시 세션에 회원 정보·유형을 저장하고, 요청마다 서버에서 권한을 검증하는 구조로 구성했습니다.
               </p>
               <p style={{ marginBottom: '12px' }}>
-                <strong>MySQL:</strong> 검색·정렬이 잦은 채용공고 특성에 맞춰 인덱스를 설계하고, 사용자 입력은 <strong>Prepared Statement(파라미터 바인딩)</strong>로 처리해 SQL 인젝션을 방지했습니다.
+                <strong>MySQL:</strong> 조회가 잦은 컬럼에 인덱스를 설계하고, 사용자 입력값을 SQL 쿼리에 직접 넣지 않고 <strong>Prepared Statement를 사용해 파라미터로 분리한 뒤 바인딩 처리</strong>하여 SQL 인젝션을 방지했습니다.
               </p>
               <p style={{ marginBottom: '12px' }}>
                 <strong>외부 API 연동:</strong> 본인인증(PASS)·SMS·이메일은 서버-서버 통신과 콜백/리다이렉트로 연동하고, 인증 결과를 서버에서 검증해 위·변조를 차단했습니다.
               </p>
               <p>
-                <strong>PC · 모바일 이원화:</strong> 공통 백엔드를 두고 디바이스에 따라 뷰를 분기해, 각 환경에 맞는 화면과 인터랙션을 최적화했습니다.
+                <strong>PC · 모바일 각각 구축:</strong> 서버는 공통으로 사용하고, PC와 모바일 화면을 각각 만들어 각 환경에 맞게 최적화했습니다.
               </p>
               <div className="project-tags">
                 <span>PHP</span>
@@ -113,35 +109,30 @@ export default function TelemonContent() {
                 <span>Prepared Statement</span>
               </div>
             </div>
-            <img src="/telemon1.png" alt="기술 아키텍처" className="project-image" />
           </article>
         </div>
       </section>
 
       <section className="about-section" id="design">
-        <h2>핵심 설계 — 회원 · 공고 · 노출 구조</h2>
+        <h2>핵심 설계 — 회원 유형별 권한 구조</h2>
         <div className="about-projects">
           <article className="project-card">
             <div className="project-content">
               <p>
-                이 플랫폼의 핵심은 <strong>회원 유형별 권한과 채용공고의 노출 우선순위를 규칙으로 분리해 설계</strong>한 것입니다.
+                이 플랫폼의 핵심은 <strong>회원 유형별로 접근 범위와 권한을 규칙으로 분리해 설계</strong>한 것입니다.
               </p>
               <p style={{ marginBottom: '12px' }}>
-                <strong>권한 분리:</strong> 비로그인 방문자·구직자·기업 회원·관리자로 접근 범위를 나눴습니다. 비로그인 방문자도 공고 검색과 비회원 지원이 가능하되, 회원·결제·관리 기능은 세션의 회원 유형을 기준으로 서버에서 검증했습니다. 화면에서 메뉴를 숨기는 데 그치지 않고 요청 단에서 다시 검증해 우회를 막았습니다.
-              </p>
-              <p style={{ marginBottom: '12px' }}>
-                <strong>공고 노출 로직:</strong> 공고에 등급·노출 우선순위 값을 두고, 결제 상태와 등급(HOT · 추천 · 플래티넘)에 따라 <strong>정렬 가중치를 적용한 쿼리</strong>로 주요 영역에 우선 노출되도록 했습니다.
+                <strong>권한 분리:</strong> 비로그인 방문자·구직자·기업 회원·관리자로 접근 범위를 나눴습니다. 비로그인 방문자도 공고 검색과 비회원 지원이 가능하되, 회원·관리 기능은 세션의 회원 유형을 기준으로 서버에서 검증했습니다.
               </p>
               <p>
-                <strong>검색:</strong> 지역·업종·직무·경력 등 선택된 조건만 <strong>동적으로 WHERE 절을 조합</strong>하고, 자주 쓰이는 조건에 인덱스를 걸어 응답 속도를 확보했습니다.
+                특히 화면에서 메뉴를 숨기는 데 그치지 않고 <strong>요청 단에서 서버가 다시 검증</strong>하도록 해, 직접 요청을 보내더라도 권한이 없으면 차단되도록 우회를 막았습니다.
               </p>
               <div className="project-tags">
-                <span>세션 기반 권한 검증</span>
-                <span>정렬 가중치 쿼리</span>
-                <span>동적 검색 쿼리</span>
+                <span>회원 유형별 권한</span>
+                <span>세션 기반 검증</span>
+                <span>서버 측 우회 차단</span>
               </div>
             </div>
-            <img src="/telemon8.png" alt="회원 및 공고 노출 구조" className="project-image" />
           </article>
         </div>
       </section>
@@ -154,7 +145,7 @@ export default function TelemonContent() {
               <h3>PASS &amp; 소셜 로그인 연동</h3>
               <p>
                 통신사 본인인증 서비스 <strong>PASS</strong>와 소셜 로그인을 연동했습니다.
-                인증 요청 후 돌아오는 <strong>콜백 결과를 서버에서 검증</strong>하고 세션과 연계해, 실명·연령·휴대폰 인증을 한 번에 안전하게 처리했습니다. 그 결과 회원가입 전환율을 개선했습니다.
+                인증 요청 후 돌아오는 <strong>콜백 결과를 서버에서 검증</strong>하고 세션과 연계해, 실명·연령·휴대폰 인증을 한 번에 안전하게 처리했습니다. 그 결과 인증 완료 이후 별도 재입력 없이 회원가입 흐름이 자연스럽게 이어지도록 개선했습니다.
               </p>
               <div className="project-tags">
                 <span>PASS API</span>
@@ -169,13 +160,13 @@ export default function TelemonContent() {
             <div className="project-content">
               <h3>문자 인증 및 자동 발송 시스템</h3>
               <p>
-                <strong>비회원이 채용공고에 지원할 때</strong> 인증번호를 발급하고 만료 시간 내 입력값과 대조해 휴대폰 번호를 검증합니다.
-                인증이 끝나면 <strong>지원 저장과 담당자 자동 문자 발송이 이어지는 흐름</strong>으로 처리해, 기업의 신청 현황 관리를 실시간으로 지원합니다.
+                <strong>비회원이 채용공고에 지원할 때</strong> 서버에서 인증번호를 생성하고 <strong>CoolSMS로 문자를 발송</strong>한 뒤, 사용자가 입력한 인증번호를 만료 시간 내에 대조해 검증합니다.
+                인증이 끝나면 <strong>지원 저장과 담당자 자동 문자 발송이 이어지는 흐름</strong>으로 처리해, 공고 신청 현황 관리를 실시간으로 지원합니다.
               </p>
               <div className="project-tags">
+                <span>CoolSMS</span>
                 <span>SMS 인증</span>
                 <span>자동 발송</span>
-                <span>실시간 알림</span>
               </div>
             </div>
             <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
@@ -187,33 +178,14 @@ export default function TelemonContent() {
 
           <article className="project-card">
             <div className="project-content">
-              <h3>이메일 상담 답변 시스템</h3>
-              <p>
-                사용자의 <strong>상담 신청</strong>이 들어오면 관리자가 <strong>스마트에디터</strong>로 답변을 작성하고,
-                발송 시 실제 사용자 이메일로 답변이 전송됩니다. 효율적인 상담 관리와 고객 만족도 향상을 함께 달성했습니다.
-              </p>
-              <div className="project-tags">
-                <span>스마트에디터</span>
-                <span>이메일 자동 발송</span>
-                <span>상담 관리</span>
-              </div>
-            </div>
-            <div className="project-images-group">
-              <img src="/telemon6.png" alt="이메일 상담 답변 시스템 1" className="project-image" />
-              <img src="/telemon7.png" alt="이메일 상담 답변 시스템 2" className="project-image" />
-            </div>
-          </article>
-
-          <article className="project-card">
-            <div className="project-content">
               <h3>스마트한 채용공고 검색</h3>
               <p>
-                지역·업종·직무·경력 등 선택된 조건만 <strong>동적으로 쿼리에 반영</strong>하는 다중 필터 검색을 구현했습니다.
-                인기공고·HOT 리워드·플래티넘 등급 등 공고 타입을 노출 우선순위와 함께 정렬해 제공합니다.
+                지역·업종·직무·경력 등 다양한 조건으로 채용공고를 검색할 수 있도록 구현했습니다.
+                페이지 진입 시 공고 데이터를 불러온 뒤, <strong>조건이 바뀌면 서버에 다시 요청하지 않고 브라우저에서 JavaScript로 필터링</strong>해 결과를 즉시 화면에 반영합니다. 인기공고·HOT 리워드·플래티넘 등급 등 공고 타입도 노출 우선순위에 따라 정렬해 제공합니다.
               </p>
               <div className="project-tags">
-                <span>동적 다중 필터</span>
-                <span>인덱스 최적화</span>
+                <span>클라이언트 필터링</span>
+                <span>JavaScript</span>
                 <span>우선순위 정렬</span>
               </div>
             </div>
@@ -222,15 +194,15 @@ export default function TelemonContent() {
 
           <article className="project-card">
             <div className="project-content">
-              <h3>유료 공고 광고 시스템</h3>
+              <h3>공고 광고 노출 시스템</h3>
               <p>
-                기업 회원이 <strong>유료 광고 서비스</strong>를 결제하면 해당 공고가 주요 노출 영역(HOT · 추천 공고 등)에 우선 표시됩니다.
-                기업의 채용 성공률을 높이는 동시에 플랫폼 수익화를 달성했습니다.
+                <strong>유료 광고로 등록된 공고</strong>를 주요 노출 영역(HOT · 추천 공고 등)에 우선 표시하는 기능을 구현했습니다.
+                공고 등급에 따라 노출 우선순위를 다르게 적용해, <strong>상위 노출을 원하는 기업이 자연스럽게 유료 광고를 선택하도록 유도</strong>하고, 이를 통해 플랫폼 수익으로 이어지는 구조를 만들었습니다.
               </p>
               <div className="project-tags">
                 <span>광고 노출</span>
-                <span>결제 연동</span>
-                <span>우선순위</span>
+                <span>노출 우선순위</span>
+                <span>광고 수익화</span>
               </div>
             </div>
             <img src="/telemon8.png" alt="유료 공고 광고 시스템" className="project-image" />
@@ -241,7 +213,7 @@ export default function TelemonContent() {
               <h3>관리자 페이지</h3>
               <p>
                 전체 플랫폼 운영을 위한 관리자 페이지를 직접 구축했습니다.
-                회원 관리·공고 승인·결제 현황·상담 관리를 통합적으로 다루며, <strong>집계 쿼리 기반 통계 대시보드</strong>로 주요 지표를 한눈에 파악할 수 있습니다.
+                회원 관리·공고 승인·상담 관리를 통합적으로 다루며, <strong>집계 쿼리 기반 통계 대시보드</strong>로 주요 지표를 한눈에 파악할 수 있습니다.
               </p>
               <div className="project-tags">
                 <span>회원 관리</span>
@@ -256,6 +228,46 @@ export default function TelemonContent() {
               <img src="/telemon12.png" alt="관리자 페이지 4" />
             </div>
           </article>
+
+          <article className="project-card">
+            <div className="project-content">
+              <h3>외부 공고 자동 수집 — URL 크롤링/파싱</h3>
+              <p>
+                플랫폼 오픈 이벤트의 일환으로, <strong>기업 대신 공고를 등록해주고 유료 광고 상품을 미리 체험</strong>할 수 있게 하는 기능을 구현했습니다.
+                다른 플랫폼에 올라온 공고 <strong>URL만 입력하면, PHP 크롤러가 해당 페이지를 파싱해 제목·근무 조건·상세 내용 등을 텔레몬 양식에 맞게 자동으로 채워줍니다.</strong>
+                관리자가 공고를 하나하나 직접 옮겨 적던 <strong>수작업을 없애 등록 업무를 크게 줄였고</strong>, 오픈 이벤트로 다량의 공고를 빠르게 올려 유료 서비스 전환을 자연스럽게 유도했습니다.
+              </p>
+              <div className="project-tags">
+                <span>PHP 크롤러</span>
+                <span>자동 파싱</span>
+                <span>공고 자동 등록</span>
+              </div>
+            </div>
+            <div className="project-images-group">
+              <img src="/telemon13.png" alt="외부 공고 자동 수집 1" className="project-image" />
+              <img src="/telemon15.png" alt="외부 공고 자동 수집 2" className="project-image" />
+              <img src="/telemon14.png" alt="외부 공고 자동 수집 3" className="project-image" />
+            </div>
+          </article>
+
+          <article className="project-card">
+            <div className="project-content">
+              <h3>이메일 상담 답변 시스템</h3>
+              <p>
+                사용자의 <strong>상담 신청</strong>이 들어오면 관리자가 <strong>스마트에디터(WYSIWYG)</strong>로 답변을 작성하고,
+                작성된 HTML 본문을 <strong>PHPMailer</strong>로 실제 사용자 이메일에 발송합니다. 효율적인 상담 관리와 고객 만족도 향상을 함께 달성했습니다.
+              </p>
+              <div className="project-tags">
+                <span>스마트에디터</span>
+                <span>PHPMailer</span>
+                <span>이메일 발송</span>
+              </div>
+            </div>
+            <div className="project-images-group">
+              <img src="/telemon6.png" alt="이메일 상담 답변 시스템 1" className="project-image" />
+              <img src="/telemon7.png" alt="이메일 상담 답변 시스템 2" className="project-image" />
+            </div>
+          </article>
         </div>
       </section>
 
@@ -265,24 +277,24 @@ export default function TelemonContent() {
           <article className="project-card">
             <div className="project-content">
               <p style={{ marginBottom: '12px' }}>
-                가장 까다로웠던 부분은 <strong>본인인증(PASS)·문자·이메일 같은 외부 서비스 연동</strong>이었습니다. 각 서비스의 응답 형식과 실패 케이스가 달라, 인증 콜백이 중간에 끊기거나 문자가 중복·누락 발송되는 상황을 처리해야 했습니다.
+                가장 까다로웠던 부분은 <strong>PASS 본인인증을 앱 웹뷰(WebView) 환경에서 동작시키는 것</strong>이었습니다. PC·모바일 웹에서는 정상 동작했지만, 특히 <strong>iOS 앱 웹뷰에서는 인증 완료 후 돌아와야 할 콜백이 호출되지 않아</strong> 인증을 마쳐도 결과가 화면으로 전달되지 않는 문제가 있었습니다.
               </p>
               <p style={{ marginBottom: '12px' }}>
-                그래서 <strong>인증 상태를 세션으로 관리</strong>하고, 인증번호의 만료 시간과 검증 단계를 명확히 나눴습니다. 특히 <strong>비회원 지원 → 문자 인증 → 지원 저장 → 담당자 자동 발송</strong>으로 이어지는 흐름에서, 인증을 통과한 요청만 다음 단계로 넘어가도록 처리해 <strong>중복 지원과 발송을 방지</strong>했습니다.
+                원인은 iOS 웹뷰가 PASS 인증에서 사용하는 <strong>새 창(window.open) 기반 콜백을 정상적으로 처리하지 못하는 것</strong>이었습니다. 그래서 웹뷰 환경을 감지해, 새 창 방식 대신 <strong>같은 화면에서 이동(리다이렉트)하는 인증 방식으로 분기</strong>했습니다. 인증 결과는 서버 세션에 저장해두고, 인증 후 돌아온 페이지에서 세션의 결과를 읽어 화면에 반영하도록 처리했습니다.
               </p>
               <p>
-                또한 외부 응답의 성공/실패를 명확히 구분해, 실패 시 사용자에게 안내하고 재시도할 수 있게 했습니다. 그 결과 외부 서비스 장애 상황에서도 <strong>인증과 알림이 일관되게 동작</strong>하도록 만들 수 있었습니다.
+                그 결과 PC·모바일 웹은 물론 <strong>iOS 앱 웹뷰에서도 콜백이 누락되지 않고</strong> 인증 결과가 안정적으로 화면에 이어지도록 만들 수 있었습니다.
               </p>
               <p style={{ marginTop: '16px', marginBottom: '16px' }}>
                 <strong>배운 점</strong>
               </p>
               <p>
-                직접 통제할 수 없는 <strong>외부 서비스를 다룰 때는 정상 흐름보다 실패·예외 처리를 먼저 설계하는 것</strong>이 안정적인 서비스의 핵심이라는 점을 배웠습니다.
+                이 경험을 통해 인증 문제는 단순한 상태 관리가 아니라, <strong>실행 환경에 따라 인증 흐름 자체를 설계해야 해결된다</strong>는 점을 배웠습니다.
               </p>
               <div className="project-tags">
-                <span>세션 기반 인증 상태</span>
-                <span>중복 요청 방지</span>
-                <span>예외 처리 설계</span>
+                <span>PASS 본인인증</span>
+                <span>웹뷰(WebView) 대응</span>
+                <span>환경별 분기</span>
               </div>
             </div>
           </article>

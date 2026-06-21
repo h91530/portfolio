@@ -75,7 +75,7 @@ export default function FitReportContent() {
         </p>
 
         <p>
-          기존에 분산되어 있던 서류 처리 과정을 하나의 시스템으로 통합했고, 현재 실제 업무 환경에서 운영되고 있습니다.
+          기존에 분산되어 있던 서류 처리 과정을 하나의 시스템으로 통합했고, 현재 실제 업무 환경에서 Node.js·Electron 기반 데스크톱 애플리케이션으로 운영되고 있습니다.
         </p>
       </section>
 
@@ -132,12 +132,12 @@ export default function FitReportContent() {
                 예를 들어 분석 단계에서 심사 단계로 이동하려면 실무자 배정이 완료되어 있어야 하며 권한을 가진 사용자만 수행할 수 있습니다. 최종 승인은 대표자만 수행합니다.
               </p>
               <p>
-                이를 통해 업무 규칙을 시스템 구조에 반영하고, 권한에 맞는 작업만 수행되도록 제한해 잘못된 상태 변경을 방지했습니다.
+                권한 제어는 <strong>이중으로 적용</strong>했습니다. 프론트엔드에서는 권한이 없는 작업 버튼을 화면에서 제거하고, 백엔드에서는 <strong>로그인 토큰을 기반으로 사용자 권한을 다시 검증</strong>해, 화면을 우회한 직접 요청까지 차단했습니다.
               </p>
               <div className="project-tags">
                 <span>7단계 워크플로우</span>
-                <span>조건 기반 상태 전이</span>
                 <span>역할 기반 권한</span>
+                <span>프론트·백엔드 이중 검증</span>
               </div>
             </div>
             <img src="/2fit100.png" alt="7단계 문서 진행 워크플로우" className="project-image" />
@@ -161,7 +161,7 @@ export default function FitReportContent() {
                 <span>수정 이력</span>
               </div>
             </div>
-            <img src="/2fit1.png" alt="문서 협업 및 실시간 피드백" className="project-image" />
+            <img src="/2fit99.png" alt="문서 협업 및 실시간 피드백" className="project-image" />
           </article>
 
           <article className="project-card">
@@ -187,13 +187,15 @@ export default function FitReportContent() {
             <div className="project-content">
               <h3>파일 관리 — ZIP 일괄 다운로드</h3>
               <p>
-                여러 문서를 선택해 ZIP 파일로 일괄 다운로드할 수 있습니다.
-                JSZip을 활용해 클라이언트에서 압축 파일을 생성하고, 일괄 삭제 기능으로 대량의 문서를 효율적으로 관리합니다.
+                여러 문서를 선택해 JSZip으로 ZIP 파일로 일괄 다운로드할 수 있고, 일괄 삭제로 대량 문서를 효율적으로 관리합니다.
+              </p>
+              <p>
+                심사 서류는 기밀 정보라 <strong>파일 URL을 고정 노출하지 않고</strong>, 다운로드 시 <strong>서버에 요청해 동적으로 임시 URL을 생성</strong>해 접근하도록 했습니다. URL이 외부에 남아도 재사용되지 않아 무단 접근을 막습니다.
               </p>
               <div className="project-tags">
                 <span>ZIP 다운로드</span>
-                <span>일괄 삭제</span>
-                <span>파일 관리</span>
+                <span>동적 임시 URL</span>
+                <span>파일 보안</span>
               </div>
             </div>
             <img src="/2fit96.png" alt="파일 관리 및 ZIP 다운로드" className="project-image" />

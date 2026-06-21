@@ -8,7 +8,7 @@ export default function YoloContent() {
           <img src="/ai.svg" alt="YOLO AI" style={{ border: '2px solid #333', borderRadius: '8px' }} />
         </div>
         <h1>YOLO AI 객체 인식</h1>
-        <p className="about-tagline">이미지 객체 인식 웹 서비스 — YOLO 딥러닝 모델로 사진 속 객체를 감지하고, 종류별 통계를 제공하는 풀스택 웹</p>
+        <p className="about-tagline">YOLO 딥러닝 모델로 이미지 내 객체를 탐지하고 시각화·통계를 제공하는 풀스택 AI 웹 · 개인 프로젝트</p>
         <div className="about-quick-links">
           <a href="https://ai.yangtae.site" target="_blank" rel="noreferrer">
             사이트 방문
@@ -23,67 +23,58 @@ export default function YoloContent() {
       <section className="about-section" id="overview">
         <h2>프로젝트 개요</h2>
         <p>
-          <strong>YOLO 객체 인식 시스템</strong>은 YOLO 딥러닝 모델을 활용해 사진 속 객체를 감지하고 종류별 통계를 제공하는 풀스택 웹입니다.
-          Next.js 프레임워크로 프론트엔드와 백엔드를 모두 구축했으며, Python FastAPI 기반의 AI 서버를 별도로 운영합니다.
+          <strong>YOLO 딥러닝 모델</strong>을 활용해 이미지 내 객체를 탐지하고, 결과를 시각화 및 통계로 제공하는 풀스택 AI 웹 서비스입니다.
         </p>
-
-        <p style={{ marginTop: '20px', marginBottom: '20px' }}>
-          PyTorch 의존성 문제로 Vercel 단독 배포가 불가능해 <strong>프론트엔드(Vercel)와 AI 서버(AWS Lightsail)를 분리</strong>했습니다.
-          Next.js API Route를 프록시로 활용하여 CORS를 처리하고 백엔드 주소를 은닉합니다.
-          <strong>FastAPI 상시 서버에서 모델을 메모리에 유지</strong>하여 응답 성능을 최적화했습니다.
+        <p style={{ marginTop: '12px' }}>
+          <strong>프론트엔드는 Next.js, AI 처리는 FastAPI로 분리</strong>해 구성했습니다. 사용자가 이미지를 업로드하면 AI 서버에서 YOLO 추론을 수행하고 결과 이미지를 반환합니다. 기획부터 개발·배포까지 직접 진행한 개인 프로젝트입니다.
         </p>
       </section>
 
-      <section className="about-section">
-        <h2>주요 기능 및 프로세스</h2>
+      <section className="about-section" id="architecture">
+        <h2>아키텍처 설계</h2>
         <div className="about-projects">
           <article className="project-card">
             <div className="project-content">
-              <h3>사진 업로드 및 객체 감지</h3>
               <p>
-                사용자가 사진을 업로드하면 YOLO 모델이 사진 속 객체를 감지합니다.
-                감지된 객체마다 바운딩 박스를 표시하고 신뢰도(Confidence) 점수를 함께 표시합니다.
-                실시간으로 처리되어 사용자는 즉시 결과를 확인할 수 있습니다.
+                <strong>Vercel 서버리스 환경에서는 모델을 상시 유지할 수 없기 때문에</strong>, AI 서버를 <strong>AWS Lightsail에 분리 배포</strong>했습니다.
+              </p>
+              <ul style={{ margin: '4px 0 14px', paddingLeft: '20px', fontSize: '14px', lineHeight: '1.9', color: '#333' }}>
+                <li>YOLO 모델은 <strong>서버 시작 시 1회 로드</strong>해 메모리에 유지</li>
+                <li><strong>pm2</strong>로 프로세스를 상시 유지(죽어도 자동 재시작)</li>
+              </ul>
+              <p>
+                또한 <strong>Next.js를 API Proxy로 사용</strong>하여 브라우저가 백엔드 서버를 직접 호출하지 않도록 구성했습니다. 이를 통해 <strong>CORS 문제를 회피</strong>하고, 동시에 백엔드 API 엔드포인트를 외부에 노출하지 않도록 구조를 분리했습니다.
               </p>
               <div className="project-tags">
-                <span>이미지 처리</span>
-                <span>실시간 감지</span>
+                <span>프론트/AI 서버 분리</span>
+                <span>모델 1회 로드</span>
+                <span>pm2 상시 구동</span>
+                <span>API Proxy</span>
               </div>
             </div>
-            <img src="/ai2.png" alt="사진 업로드 및 객체 감지" className="project-image" style={{ maxHeight: '600px', objectFit: 'contain' }} />
           </article>
+        </div>
+      </section>
 
+      <section className="about-section" id="features">
+        <h2>핵심 기능</h2>
+        <div className="about-projects">
           <article className="project-card">
             <div className="project-content">
-              <h3>통계 분석 및 시각화</h3>
+              <h3>객체 탐지 &amp; 시각화</h3>
               <p>
-                감지된 객체를 종류별로 분류하고 각 종류별 개수를 통계화합니다.
-                차트로 시각화하여 사용자가 한눈에 객체 분포를 파악할 수 있습니다.
-                여러 장의 사진을 누적하여 통계 데이터를 추적할 수 있습니다.
+                FastAPI 서버에 <strong>Ultralytics YOLO 모델을 미리 로드</strong>해두고, 업로드된 이미지를 입력으로 객체 탐지를 수행합니다.
+                <strong>OpenCV로 객체를 감싸는 박스와 신뢰도(정확도) 점수를 이미지에 표시</strong>하고, 종류별 개수는 차트로 제공합니다.
               </p>
               <div className="project-tags">
-                <span>데이터 분석</span>
-                <span>시각화</span>
+                <span>YOLO 추론</span>
+                <span>OpenCV 시각화</span>
+                <span>종류별 통계</span>
               </div>
             </div>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', width: '100%' }}>
-              <img src="/ai4.png" alt="통계 분석 및 시각화 1" className="project-image" />
-              <img src="/ai3.png" alt="통계 분석 및 시각화 2" className="project-image" style={{ maxHeight: '400px', objectFit: 'contain' }} />
-            </div>
-          </article>
-
-          <article className="project-card">
-            <div className="project-content">
-              <h3>분리된 아키텍처로 안정성 확보</h3>
-              <p>
-                PyTorch 의존성 문제로 Vercel 단독 배포가 불가능해 프론트엔드(Vercel)와 AI 서버(AWS Lightsail)를 분리했습니다.
-                Next.js API Route를 프록시로 활용하여 CORS를 처리하고 백엔드 주소를 은닉합니다.
-                FastAPI 상시 서버에서 모델을 메모리에 유지하여 응답 시간을 7초에서 1초로 단축했습니다.
-              </p>
-              <div className="project-tags">
-                <span>마이크로서비스</span>
-                <span>성능 최적화</span>
-              </div>
+              <img src="/ai2.png" alt="객체 탐지" className="project-image" />
+              <img src="/ai4.png" alt="통계 시각화" className="project-image" />
             </div>
           </article>
         </div>
@@ -95,24 +86,25 @@ export default function YoloContent() {
           <div className="skill-group">
             <h3>Frontend</h3>
             <div className="skill-chips">
-              <span>Next.js(App Router)</span>
+              <span>Next.js</span>
               <span>TypeScript</span>
               <span>React</span>
             </div>
           </div>
           <div className="skill-group">
-            <h3>Backend & AI</h3>
+            <h3>Backend &amp; AI</h3>
             <div className="skill-chips">
               <span>Python</span>
               <span>FastAPI</span>
               <span>YOLO(Ultralytics)</span>
               <span>OpenCV</span>
+              <span>Pillow</span>
             </div>
           </div>
           <div className="skill-group">
-            <h3>Infrastructure</h3>
+            <h3>Infra</h3>
             <div className="skill-chips">
-              <span>Vercel(프론트)</span>
+              <span>Vercel</span>
               <span>AWS Lightsail</span>
               <span>nginx</span>
               <span>pm2</span>
